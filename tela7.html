@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="utf-8">
-
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>YNA</title>
+<title>Detalhes do Medicamento - YNA</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
@@ -14,6 +13,11 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background-color:#fff7fc;color:#
 .scroll-hide::-webkit-scrollbar{display:none}
 .scroll-hide{-ms-overflow-style:none;scrollbar-width:none}
 .duration-pill.active{background-color:#5d3263;color:#fff;border-color:#5d3263}
+.indeterminado-card{transition:all 0.2s ease}
+.indeterminado-card.active{background-color:#441b4b;border-color:#441b4b;color:#fff}
+.indeterminado-card.active .material-symbols-outlined{color:#fff}
+.dias-card{transition:all 0.2s ease}
+.dias-card.active{border-color:#441b4b;background-color:#faf1f8}
 </style>
 <script id="tailwind-config">
 tailwind.config = {
@@ -48,13 +52,9 @@ tailwind.config = {
     <button onclick="window.location.href='tela6.html'" class="p-1 rounded-full hover:bg-surface-container-low transition-colors active:scale-95">
       <span class="material-symbols-outlined text-primary">arrow_back</span>
     </button>
-   <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container flex-shrink-0">
-  <img 
-    src="yna.png" 
-    alt="YNA Avatar" 
-    class="w-full h-full object-cover"
-  >
-</div>
+    <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container flex-shrink-0">
+      <img src="yna.png" alt="YNA Avatar" class="w-full h-full object-cover">
+    </div>
     <span class="font-headline-md text-headline-md font-bold text-primary">YNA</span>
   </div>
   <div class="cursor-pointer active:opacity-80 hover:bg-surface-container-low transition-colors p-2 rounded-full">
@@ -62,121 +62,127 @@ tailwind.config = {
   </div>
 </nav>
 
-<main class="pt-20 px-margin-mobile max-w-container-max mx-auto">
-  <header class="mb-8 mt-4">
+<main class="pt-20 px-margin-mobile max-w-2xl mx-auto">
+  <header class="mb-8 mt-4 text-center">
     <h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary">Detalhes do Medicamento</h1>
     <p class="font-body-md text-body-md text-on-surface-variant mt-2">Configure a administração e valide a segurança com IA.</p>
   </header>
 
-  <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
-    <section class="md:col-span-7 flex flex-col gap-6">
-      <div class="glass-card rounded-xl p-6 flex items-center justify-between">
-        <div class="flex items-center gap-4">
-          <div class="w-16 h-16 bg-secondary-container rounded-lg flex items-center justify-center">
-            <span class="material-symbols-outlined text-on-secondary-container text-4xl">pill</span>
-          </div>
-          <div>
-            <h2 class="font-headline-md text-headline-md text-on-surface">Empaglifozina</h2>
-            <p class="font-label-md text-label-md text-outline">Comprimido • Uso Adulto</p>
-          </div>
+  <div class="flex flex-col gap-6">
+    <!-- Card do medicamento -->
+    <div class="glass-card rounded-xl p-6 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <div class="w-16 h-16 bg-secondary-container rounded-lg flex items-center justify-center">
+          <span class="material-symbols-outlined text-on-secondary-container text-4xl">pill</span>
         </div>
-        <button class="text-primary hover:bg-surface-container-low p-2 rounded-full transition-colors">
-          <span class="material-symbols-outlined">edit</span>
+        <div>
+          <h2 class="font-headline-md text-headline-md text-on-surface">Empaglifozina</h2>
+          <p class="font-label-md text-label-md text-outline">Comprimido • Uso Adulto</p>
+        </div>
+      </div>
+      <button class="text-primary hover:bg-surface-container-low p-2 rounded-full transition-colors">
+        <span class="material-symbols-outlined">edit</span>
+      </button>
+    </div>
+
+    <!-- Configuração -->
+    <div class="glass-card rounded-xl p-6 space-y-6">
+      <!-- Dose -->
+      <div>
+        <label class="block font-label-md text-label-md text-on-surface mb-2">Dose Recomendada</label>
+        <div class="relative">
+          <input id="dose-input" class="w-full h-12 px-4 rounded-lg border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary-fixed outline-none transition-all font-body-md text-body-md cursor-pointer" value="10mg" type="text">
+          <span class="absolute right-4 top-1/2 -translate-y-1/2 text-outline material-symbols-outlined">straighten</span>
+        </div>
+      </div>
+
+      <!-- Via de administração -->
+      <div>
+        <label class="block font-label-md text-label-md text-on-surface mb-2">Via de administração</label>
+        <div class="grid grid-cols-3 gap-3" id="via-group">
+          <button data-via="Oral" class="via-btn border-2 border-primary bg-primary-fixed text-primary px-4 py-3 rounded-lg flex flex-col items-center gap-1 transition-all">
+            <span class="material-symbols-outlined">south</span><span class="font-label-sm text-label-sm">Oral</span>
+          </button>
+          <button data-via="IV" class="via-btn border border-outline-variant hover:border-primary-fixed px-4 py-3 rounded-lg flex flex-col items-center gap-1 transition-all text-on-surface-variant">
+            <span class="material-symbols-outlined">vaccines</span><span class="font-label-sm text-label-sm">IV</span>
+          </button>
+          <button data-via="Outra" class="via-btn border border-outline-variant hover:border-primary-fixed px-4 py-3 rounded-lg flex flex-col items-center gap-1 transition-all text-on-surface-variant">
+            <span class="material-symbols-outlined">medical_services</span><span class="font-label-sm text-label-sm">Outra</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Horários -->
+      <div>
+        <label class="block font-label-md text-label-md text-on-surface mb-2">Horários de Tomada</label>
+        <div class="flex flex-wrap gap-4 justify-center" id="horarios-group">
+          <div data-time="08:00" class="horario-pill flex items-center gap-3 bg-surface-container rounded-full px-4 py-2 border border-outline-variant cursor-pointer hover:border-primary transition-colors">
+            <span class="material-symbols-outlined text-amber-500" style="font-variation-settings: 'FILL' 1;">light_mode</span>
+            <span class="font-label-md text-label-md">08:00</span>
+          </div>
+          <div data-time="16:00" class="horario-pill flex items-center gap-3 bg-surface-container rounded-full px-4 py-2 border border-outline-variant cursor-pointer hover:border-primary transition-colors">
+            <span class="material-symbols-outlined text-orange-400" style="font-variation-settings: 'FILL' 1;">wb_sunny</span>
+            <span class="font-label-md text-label-md">16:00</span>
+          </div>
+          <div data-time="00:00" class="horario-pill selected flex items-center gap-3 bg-primary-container text-white rounded-full px-4 py-2 border border-primary cursor-pointer transition-colors">
+            <span class="material-symbols-outlined text-primary-fixed" style="font-variation-settings: 'FILL' 1;">dark_mode</span>
+            <span class="font-label-md text-label-md">00:00</span>
+          </div>
+          <button id="add-horario" class="w-10 h-10 rounded-full border-2 border-dashed border-outline flex items-center justify-center text-outline hover:text-primary hover:border-primary transition-all">
+            <span class="material-symbols-outlined">add</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Duração do Tratamento: duas opções claras e grandes -->
+      <div>
+        <label class="block font-label-md text-label-md text-on-surface mb-3 text-center">Duração do Tratamento</label>
+
+        <!-- Opção 1: Tempo Indeterminado — destaque total, sozinho -->
+        <button id="indeterminado-btn" class="indeterminado-card w-full flex items-center gap-4 p-5 rounded-xl border-2 border-primary bg-primary-fixed text-primary transition-all active:scale-[0.98] mb-4">
+          <span class="material-symbols-outlined text-4xl shrink-0">all_inclusive</span>
+          <div class="text-left flex-1">
+            <p class="font-headline-md text-headline-md leading-tight">Tempo Indeterminado</p>
+            <p class="font-body-md text-body-md opacity-80">Uso contínuo, sem data para parar</p>
+          </div>
+          <span class="material-symbols-outlined check-icon text-3xl">check_circle</span>
         </button>
-      </div>
 
-      <div class="glass-card rounded-xl p-6 space-y-6">
-        <!-- Dose (clicável / editável) -->
-        <div>
-          <label class="block font-label-md text-label-md text-on-surface mb-2">Dose Recomendada</label>
-          <div class="relative">
-            <input id="dose-input" class="w-full h-12 px-4 rounded-lg border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary-fixed outline-none transition-all font-body-md text-body-md cursor-pointer" value="10mg" type="text">
-            <span class="absolute right-4 top-1/2 -translate-y-1/2 text-outline material-symbols-outlined">straighten</span>
-          </div>
+        <!-- Divisor -->
+        <div class="flex items-center gap-3 mb-4">
+          <div class="flex-1 h-px bg-outline-variant"></div>
+          <span class="text-label-md font-label-md text-outline">ou escolha os dias</span>
+          <div class="flex-1 h-px bg-outline-variant"></div>
         </div>
 
-        <!-- Via de administração (clicável) -->
-        <div>
-          <label class="block font-label-md text-label-md text-on-surface mb-2">Via de administração</label>
-          <div class="grid grid-cols-3 gap-3" id="via-group">
-            <button data-via="Oral" class="via-btn border-2 border-primary bg-primary-fixed text-primary px-4 py-3 rounded-lg flex flex-col items-center gap-1 transition-all">
-              <span class="material-symbols-outlined">south</span><span class="font-label-sm text-label-sm">Oral</span>
-            </button>
-            <button data-via="IV" class="via-btn border border-outline-variant hover:border-primary-fixed px-4 py-3 rounded-lg flex flex-col items-center gap-1 transition-all text-on-surface-variant">
-              <span class="material-symbols-outlined">vaccines</span><span class="font-label-sm text-label-sm">IV</span>
-            </button>
-            <button data-via="Outra" class="via-btn border border-outline-variant hover:border-primary-fixed px-4 py-3 rounded-lg flex flex-col items-center gap-1 transition-all text-on-surface-variant">
-              <span class="material-symbols-outlined">medical_services</span><span class="font-label-sm text-label-sm">Outra</span>
-            </button>
+        <!-- Opção 2: Definir número de dias -->
+        <button id="dias-btn" class="dias-card w-full flex items-center gap-4 p-5 rounded-xl border-2 border-outline-variant bg-surface-container-lowest text-on-surface transition-all active:scale-[0.98]">
+          <span class="material-symbols-outlined text-4xl shrink-0 text-primary">calendar_month</span>
+          <div class="text-left flex-1">
+            <p class="font-headline-md text-headline-md leading-tight" id="dias-btn-label">Definir Quantidade de Dias</p>
+            <p class="font-body-md text-body-md text-on-surface-variant">Toque para escolher a duração exata</p>
           </div>
-        </div>
-
-        <!-- Horários (clicáveis + adicionar) -->
-        <div>
-          <label class="block font-label-md text-label-md text-on-surface mb-2">Horários de Tomada</label>
-          <div class="flex flex-wrap gap-4" id="horarios-group">
-            <div data-time="08:00" class="horario-pill flex items-center gap-3 bg-surface-container rounded-full px-4 py-2 border border-outline-variant cursor-pointer hover:border-primary transition-colors">
-              <span class="material-symbols-outlined text-amber-500" style="font-variation-settings: 'FILL' 1;">light_mode</span>
-              <span class="font-label-md text-label-md">08:00</span>
-            </div>
-            <div data-time="16:00" class="horario-pill flex items-center gap-3 bg-surface-container rounded-full px-4 py-2 border border-outline-variant cursor-pointer hover:border-primary transition-colors">
-              <span class="material-symbols-outlined text-orange-400" style="font-variation-settings: 'FILL' 1;">wb_sunny</span>
-              <span class="font-label-md text-label-md">16:00</span>
-            </div>
-            <div data-time="00:00" class="horario-pill selected flex items-center gap-3 bg-primary-container text-white rounded-full px-4 py-2 border border-primary cursor-pointer transition-colors">
-              <span class="material-symbols-outlined text-primary-fixed" style="font-variation-settings: 'FILL' 1;">dark_mode</span>
-              <span class="font-label-md text-label-md">00:00</span>
-            </div>
-            <button id="add-horario" class="w-10 h-10 rounded-full border-2 border-dashed border-outline flex items-center justify-center text-outline hover:text-primary hover:border-primary transition-all">
-              <span class="material-symbols-outlined">add</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Duração: scroll horizontal de dias -->
-        <div>
-          <label class="block font-label-md text-label-md text-on-surface mb-2">Duração do Tratamento</label>
-          <div class="flex items-center gap-4">
-            <div class="flex-1 overflow-x-auto scroll-hide">
-              <div class="flex gap-2 w-max" id="duration-scroll">
-                <!-- pills geradas via JS -->
-              </div>
-            </div>
-          </div>
-          <p class="text-center mt-3 font-headline-md text-headline-md text-primary" id="duration-label">9 dias</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="md:col-span-5 flex flex-col gap-6">
-      <div class="relative overflow-hidden glass-card rounded-xl border-2 border-error p-6">
-        <div class="flex justify-center mb-4">
-          <div class="w-24 h-24 rounded-full overflow-hidden border-2 border-error shadow-md bg-white">
-            <img alt="YNA Alerta Crítico" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLvPwmRQHhIgSKKUVFJjSz7xaYWn9OfHSfe0GobuViwEAJ5FfD0WZl5Z_7VDosSiHSGvIU0DBaWct5L_8EVoaltZYkZEb7DAkASELlHXhZ6RonX_UmasVRDOpuw7YLKmomLWcy2D5VLIzt9AdbQk9JbXtUlTjRI7QJxVVhoOHJ0sS9Xlt-waZN4gRHhcyDT7CZkXWprPmLjfQE-I_PP7hKRRYOBQdfCdX-SU_FBLhu5wySlOonQyY-0I97Y">
-          </div>
-        </div>
-        <div class="flex justify-between items-start mb-4">
-          <div class="bg-error-container text-on-error-container px-3 py-1 rounded-full flex items-center gap-1">
-            <span class="material-symbols-outlined text-[18px]">report</span><span class="text-label-sm font-label-sm">Alerta Crítico</span>
-          </div>
-          <span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">warning</span>
-        </div>
-        <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Interação Medicamentosa</h3>
-        <p class="text-body-md font-body-md text-on-surface-variant">YNA detectou uma possível interação moderada entre <span class="font-bold text-primary">Empaglifozina 10mg</span> e <span class="font-bold text-primary">Losartana 50mg</span>. O uso concomitante pode aumentar o risco de hipotensão severa.</p>
-        <div class="mt-6 flex flex-col gap-2">
-          <button onclick="window.location.href='tela8.html'" class="bg-primary text-on-primary h-14 rounded-xl font-label-md hover:opacity-90 transition-opacity active:scale-95">Consultar Alerta</button>
-          <button onclick="window.location.href='tela8.html'" class="text-primary font-label-md py-2">Ver detalhes técnicos</button>
-        </div>
-      </div>
-
-      <div class="mt-auto pt-6">
-        <button id="save-btn" class="w-full bg-primary hover:bg-primary-container text-white h-14 rounded-xl font-headline-md text-headline-md flex items-center justify-center gap-3 shadow-lg active:scale-95 transition-all">
-          <span>Salvar no Cronograma</span>
-          <span class="material-symbols-outlined">event_available</span>
+          <span class="material-symbols-outlined text-3xl text-outline">chevron_right</span>
         </button>
-        <p class="text-center mt-4 font-label-sm text-label-sm text-outline">Ao salvar, este lembrete será ativado automaticamente.</p>
+
+        <!-- Seletor de dias (aparece só quando "Definir dias" está ativo) -->
+        <div id="dias-seletor" class="hidden mt-4 p-4 bg-surface-container-low rounded-xl">
+          <div class="overflow-x-auto scroll-hide">
+            <div class="flex gap-2 w-max px-1" id="duration-scroll"></div>
+          </div>
+          <p class="text-center mt-4 font-headline-md text-headline-md text-primary" id="duration-label">9 dias</p>
+        </div>
       </div>
-    </section>
+    </div>
+
+    <!-- Ação: Salvar no Cronograma -->
+    <div class="pt-2">
+      <button id="save-btn" class="w-full bg-primary hover:bg-primary-container text-white h-14 rounded-xl font-headline-md text-headline-md flex items-center justify-center gap-3 shadow-lg active:scale-95 transition-all">
+        <span>Salvar no Cronograma</span>
+        <span class="material-symbols-outlined">event_available</span>
+      </button>
+      <p class="text-center mt-4 font-label-sm text-label-sm text-outline">Ao salvar, este lembrete será ativado automaticamente.</p>
+    </div>
   </div>
 </main>
 
@@ -241,26 +247,57 @@ document.getElementById('add-horario').addEventListener('click', () => {
   group.insertBefore(div, addBtn);
 });
 
-// Duração — scroll horizontal de pills (1 a 30 dias)
+/* ===== Duração do Tratamento: Indeterminado vs Definir dias ===== */
+const indeterminadoBtn = document.getElementById('indeterminado-btn');
+const diasBtn = document.getElementById('dias-btn');
+const diasBtnLabel = document.getElementById('dias-btn-label');
+const diasSeletor = document.getElementById('dias-seletor');
 const durationScroll = document.getElementById('duration-scroll');
 const durationLabel = document.getElementById('duration-label');
+
+let diasEscolhidos = 9;
+
+// Gera as pills de 1 a 30 dias
 for (let d = 1; d <= 30; d++) {
   const pill = document.createElement('button');
-  pill.className = 'duration-pill shrink-0 w-14 h-14 rounded-full border border-outline-variant flex items-center justify-center font-label-md text-label-md text-on-surface-variant transition-all active:scale-90' + (d === 9 ? ' active' : '');
+  pill.className = 'duration-pill shrink-0 w-14 h-14 rounded-full border border-outline-variant flex items-center justify-center font-label-md text-label-md text-on-surface-variant transition-all active:scale-90' + (d === diasEscolhidos ? ' active' : '');
   pill.textContent = d;
   pill.addEventListener('click', () => {
     document.querySelectorAll('.duration-pill').forEach(p => p.classList.remove('active'));
     pill.classList.add('active');
+    diasEscolhidos = d;
     durationLabel.textContent = `${d} dia${d > 1 ? 's' : ''}`;
+    diasBtnLabel.textContent = `${d} dia${d > 1 ? 's' : ''} de tratamento`;
     pill.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
   });
   durationScroll.appendChild(pill);
 }
 
-// Salvar (feedback visual)
+function ativarIndeterminado() {
+  indeterminadoBtn.classList.add('active');
+  diasBtn.classList.remove('active');
+  diasSeletor.classList.add('hidden');
+}
+
+function ativarDias() {
+  diasBtn.classList.add('active');
+  indeterminadoBtn.classList.remove('active');
+  diasSeletor.classList.remove('hidden');
+}
+
+// Estado inicial: Tempo Indeterminado selecionado
+ativarIndeterminado();
+
+indeterminadoBtn.addEventListener('click', ativarIndeterminado);
+diasBtn.addEventListener('click', ativarDias);
+
+// Salvar (feedback visual + redirecionamento para tela8)
 document.getElementById('save-btn').addEventListener('click', function() {
   this.innerHTML = '<span class="material-symbols-outlined">check_circle</span><span>Salvo no Cronograma!</span>';
   this.classList.replace('bg-primary', 'bg-primary-container');
+  setTimeout(() => {
+    window.location.href = 'tela8.html';
+  }, 900);
 });
 </script>
 </body></html>
