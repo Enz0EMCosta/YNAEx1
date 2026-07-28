@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>YNA</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: { extend: {
+    colors: {
+      "surface-container-highest":"#e8e0e7","on-surface-variant":"#4d444c","background":"#fff7fc",
+      "secondary":"#74537a","primary-container":"#5d3263","secondary-container":"#facffd",
+      "on-secondary-container":"#77557c","on-primary":"#ffffff","surface-container-lowest":"#ffffff",
+      "surface-container-low":"#faf1f8","primary":"#441b4b","outline":"#7f747d",
+      "surface-container":"#f4ebf2","on-primary-container":"#d39dd6","outline-variant":"#d0c3cd",
+      "surface":"#fff7fc"
+    },
+    spacing: { "margin-mobile":"16px","margin-desktop":"48px",base:"8px" },
+    fontFamily: { "headline-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"] },
+    fontSize: {
+      "headline-md":["24px",{lineHeight:"32px",fontWeight:"600"}],
+      "label-sm":["12px",{lineHeight:"16px",fontWeight:"500"}],
+      "body-md":["16px",{lineHeight:"24px",fontWeight:"400"}],
+      "body-lg":["18px",{lineHeight:"28px",fontWeight:"400"}],
+      "label-md":["14px",{lineHeight:"20px",letterSpacing:"0.01em",fontWeight:"600"}]
+    }
+  }}
+}
+</script>
+<style>
+.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+.glass-card{background:rgba(255,247,252,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.tonal-shadow{box-shadow:0 10px 25px -8px rgba(68,27,75,0.12)}
+.nav-active{background-color:#facffd;color:#77557c}
+</style>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-32">
+
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-base bg-surface shadow-sm h-16">
+  <div class="flex items-center gap-2">
+  <button onclick="window.location.href='tela6.html'" class="fixed bottom-24 right-6 w-14 h-14 bg-primary text-white rounded-2xl shadow-xl flex items-center justify-center hover:scale-105 active:scale-95 transition-all z-40">
+  <span class="material-symbols-outlined text-3xl">add</span>
+</button>
+    <div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant">
+      <img alt="YNA Purple Logo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzhyl8iL7-4icaWXZt3LtAm3M57sWeV6G0rI1Tq62DSYRSdjyY_QjuoO04EO7yBKb7-tMq_lPLwkqEGZcYo3AosKlQlPQ7QhfqouFXytQ2u98F8GmVWJKr5I7j6mFdhtIdltf9jA7jho20mX0BiW6-eoDutEC7aG4Jb5_y9iM2UNNwWex2SSMUGOGPJPEhzCpy8f9ogMxa3xdNsHLclFX1dkqC_s3luBM5QBk8hQZDb3T-C58CrXG0CyRBTYrhTYYV2LxV7M7SoRJ7Pg">
+    </div>
+    <h1 class="font-headline-md text-headline-md font-bold text-primary">YNA</h1>
+  </div>
+  <button class="text-on-surface-variant hover:bg-surface-container-high transition-colors p-2 rounded-full active:opacity-80 active:scale-95">
+    <span class="material-symbols-outlined text-2xl">settings_accessibility</span>
+  </button>
+</header>
+
+<main class="mt-20 px-4 max-w-screen-xl mx-auto">
+  <section class="space-y-4">
+    <h3 class="text-label-md font-bold text-outline uppercase tracking-widest px-1">Medicamentos Ativos</h3>
+
+    <!-- Metformina (não clicável neste protótipo) -->
+    <div class="glass-card rounded-3xl p-4 tonal-shadow opacity-95">
+      <div class="flex justify-between items-start mb-4">
+        <div class="flex gap-4">
+          <div class="w-14 h-14 rounded-2xl bg-secondary-container flex items-center justify-center text-on-secondary-container">
+            <span class="material-symbols-outlined text-3xl">pill</span>
+          </div>
+          <div>
+            <h4 class="text-headline-md font-bold text-primary">Cloridrato de Metformina</h4>
+            <p class="text-body-md text-on-surface-variant">500mg • Via Oral</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-1 bg-secondary-container/50 text-on-secondary-container px-3 py-1 rounded-full text-label-sm font-bold">
+          <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">wb_sunny</span>
+          <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">dark_mode</span>
+          Manhã/Noite
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="bg-surface-container-low p-3 rounded-2xl"><p class="text-label-sm text-outline">Frequência</p><p class="text-body-lg font-bold">2x ao dia</p></div>
+        <div class="bg-surface-container-low p-3 rounded-2xl"><p class="text-label-sm text-outline">Duração</p><p class="text-body-lg font-bold">Uso Contínuo</p></div>
+      </div>
+    </div>
+
+    <!-- Hidroclorotiazida — ÚNICA CLICÁVEL -->
+    <button onclick="window.location.href='tela5.html'" class="w-full text-left glass-card rounded-3xl p-4 tonal-shadow group transition-all hover:translate-y-[-4px] hover:ring-2 hover:ring-primary/30 cursor-pointer">
+      <div class="flex justify-between items-start mb-4">
+        <div class="flex gap-4">
+          <div class="w-14 h-14 rounded-2xl bg-secondary-container flex items-center justify-center text-on-secondary-container">
+            <span class="material-symbols-outlined text-3xl">pill</span>
+          </div>
+          <div>
+            <h4 class="text-headline-md font-bold text-primary">Hidroclorotiazida</h4>
+            <p class="text-body-md text-on-surface-variant">50mg • Via Oral</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-1 bg-secondary-container/50 text-on-secondary-container px-3 py-1 rounded-full text-label-sm font-bold">
+          <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">wb_sunny</span>
+          Manhã
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="bg-surface-container-low p-3 rounded-2xl"><p class="text-label-sm text-outline">Frequência</p><p class="text-body-lg font-bold">1x ao dia</p></div>
+        <div class="bg-surface-container-low p-3 rounded-2xl"><p class="text-label-sm text-outline">Duração</p><p class="text-body-lg font-bold">Uso Contínuo</p></div>
+      </div>
+      <p class="text-label-sm text-primary font-bold mt-3 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+        Ver detalhes <span class="material-symbols-outlined text-sm">arrow_forward</span>
+      </p>
+    </button>
+
+    <!-- Losartana (não clicável) -->
+    <div class="glass-card rounded-3xl p-4 tonal-shadow opacity-95">
+      <div class="flex justify-between items-start mb-4">
+        <div class="flex gap-4">
+          <div class="w-14 h-14 rounded-2xl bg-secondary-container flex items-center justify-center text-on-secondary-container">
+            <span class="material-symbols-outlined text-3xl">pill</span>
+          </div>
+          <div>
+            <h4 class="text-headline-md font-bold text-primary">Losartana</h4>
+            <p class="text-body-md text-on-surface-variant">50mg • Via Oral</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-1 bg-secondary-container/50 text-on-secondary-container px-3 py-1 rounded-full text-label-sm font-bold">
+          <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">wb_sunny</span>
+          <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">dark_mode</span>
+          Manhã/Noite
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="bg-surface-container-low p-3 rounded-2xl"><p class="text-label-sm text-outline">Frequência</p><p class="text-body-lg font-bold">2x ao dia</p></div>
+        <div class="bg-surface-container-low p-3 rounded-2xl"><p class="text-label-sm text-outline">Duração</p><p class="text-body-lg font-bold">Uso Contínuo</p></div>
+      </div>
+    </div>
+
+    <!-- Sinvastatina (não clicável) -->
+    <div class="glass-card rounded-3xl p-4 tonal-shadow opacity-95">
+      <div class="flex justify-between items-start mb-4">
+        <div class="flex gap-4">
+          <div class="w-14 h-14 rounded-2xl bg-secondary-container flex items-center justify-center text-on-secondary-container">
+            <span class="material-symbols-outlined text-3xl">pill</span>
+          </div>
+          <div>
+            <h4 class="text-headline-md font-bold text-primary">Sinvastatina</h4>
+            <p class="text-body-md text-on-surface-variant">40mg • Via Oral</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-1 bg-secondary-container/50 text-on-secondary-container px-3 py-1 rounded-full text-label-sm font-bold">
+          <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">dark_mode</span>
+          Noite
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="bg-surface-container-low p-3 rounded-2xl"><p class="text-label-sm text-outline">Frequência</p><p class="text-body-lg font-bold">1x ao dia</p></div>
+        <div class="bg-surface-container-low p-3 rounded-2xl"><p class="text-label-sm text-outline">Duração</p><p class="text-body-lg font-bold">Uso Contínuo</p></div>
+      </div>
+    </div>
+
+    <!-- Salbutamol (não clicável) -->
+    <div class="glass-card rounded-3xl p-4 tonal-shadow opacity-95">
+      <div class="flex justify-between items-start mb-4">
+        <div class="flex gap-4">
+          <div class="w-14 h-14 rounded-2xl bg-primary-container flex items-center justify-center text-on-primary">
+            <span class="material-symbols-outlined text-3xl">air</span>
+          </div>
+          <div>
+            <h4 class="text-headline-md font-bold text-primary">Salbutamol Spray</h4>
+            <p class="text-body-md text-on-surface-variant">SOS • Via Oral</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-1 bg-primary/10 text-primary px-3 py-1 rounded-full text-label-sm font-bold">
+          <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">emergency</span>
+          SOS
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="bg-surface-container-low p-3 rounded-2xl"><p class="text-label-sm text-outline">Uso</p><p class="text-body-lg font-bold">1x Jato</p></div>
+        <div class="bg-surface-container-low p-3 rounded-2xl"><p class="text-label-sm text-outline">Duração</p><p class="text-body-lg font-bold">Uso Contínuo</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="mt-8 relative rounded-3xl overflow-hidden h-48 group cursor-pointer">
+    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Scientific resources background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBq8AyCFLIoEv75MkI48B2Ngs0_UQcvB9AOH5BJyFL7jPhywB1MowFHhU8gQWI4X_Mv881Nmc0amkCAGyF6Ji7uh-5K1dx7OhSClXRBdjcwXYhfbyLSWYu7ScfsFnGW0sxxRrLI_tvrNH4wTW7bdzj6cUVRw473uPwbKkFPTDRmyjpE3AypMMGo1zlKrCWQD19qaFtssenh6AXgd5GefQ595zerH4hfRrANbx50CrU8XjJighyTrmykZTVLBmQuU-Dj7m8QHs2IYHQ">
+    <div class="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent flex flex-col justify-end p-4">
+      <h4 class="text-white text-headline-md font-bold">Base de Dados Científica</h4>
+      <p class="text-white/80 text-body-md">Acesse bulas e estudos clínicos atualizados.</p>
+    </div>
+  </div>
+</main>
+
+<!-- Footer / BottomNav — todo clicável (alterna estado ativo, navegação futura) -->
+<nav id="bottom-nav" class="fixed bottom-0 left-0 w-full z-50 flex justify-between items-center px-2 pb-safe h-16 bg-surface-container-lowest border-t border-outline-variant shadow-lg rounded-t-xl">
+  <button data-nav="home" class="nav-item flex flex-1 flex-col items-center justify-center text-on-surface-variant py-1 rounded-lg transition-all active:scale-90">
+    <span class="material-symbols-outlined">home</span><span class="font-label-sm text-[10px]">Início</span>
+  </button>
+  <button data-nav="meds" class="nav-item nav-active flex flex-1 flex-col items-center justify-center py-1 rounded-lg transition-all active:scale-90">
+    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">pill</span><span class="font-label-sm text-[10px]">Remédios</span>
+  </button>
+  <button data-nav="scan" class="nav-item flex flex-1 flex-col items-center justify-center text-on-surface-variant py-1 rounded-lg transition-all active:scale-90">
+    <span class="material-symbols-outlined">document_scanner</span><span class="font-label-sm text-[10px]">Escanear</span>
+  </button>
+  <button data-nav="alerts" class="nav-item flex flex-1 flex-col items-center justify-center text-on-surface-variant py-1 rounded-lg transition-all active:scale-90">
+    <span class="material-symbols-outlined">notifications</span><span class="font-label-sm text-[10px]">Alertas</span>
+  </button>
+  <button data-nav="history" class="nav-item flex flex-1 flex-col items-center justify-center text-on-surface-variant py-1 rounded-lg transition-all active:scale-90">
+    <span class="material-symbols-outlined">history_edu</span><span class="font-label-sm text-[10px]">Histórico</span>
+  </button>
+  <button data-nav="map" class="nav-item flex flex-1 flex-col items-center justify-center text-on-surface-variant py-1 rounded-lg transition-all active:scale-90">
+    <span class="material-symbols-outlined">distance</span><span class="font-label-sm text-[10px]">Mapa</span>
+  </button>
+</nav>
+
+<button class="fixed bottom-24 right-6 w-14 h-14 bg-primary text-white rounded-2xl shadow-xl flex items-center justify-center hover:scale-105 active:scale-95 transition-all z-40">
+  <span class="material-symbols-outlined text-3xl">add</span>
+</button>
+
+<script>
+const navLinks = { alerts: 'tela8.html', history: 'tela10.html', map: 'tela9.html' };
+document.querySelectorAll('.nav-item').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.nav-item').forEach(b => {
+      b.classList.remove('nav-active');
+      b.classList.add('text-on-surface-variant');
+    });
+    btn.classList.add('nav-active');
+    btn.classList.remove('text-on-surface-variant');
+    const target = navLinks[btn.dataset.nav];
+    if (target) window.location.href = target;
+  });
+});
+</script>
+</body></html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html class="" lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>YNA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: { extend: {
+    colors: {
+      "surface-container-highest":"#e8e0e7","error":"#ba1a1a","surface-variant":"#e8e0e7",
+      "on-surface":"#1e1a1f","surface-tint":"#7c4e81","surface-container-lowest":"#ffffff",
+      "error-container":"#ffdad6","secondary-container":"#facffd","on-surface-variant":"#4d444c",
+      "background":"#fff7fc","secondary":"#74537a","primary-container":"#5d3263",
+      "surface":"#fff7fc","outline-variant":"#d0c3cd","on-error":"#ffffff",
+      "on-secondary-container":"#77557c","on-primary":"#ffffff","surface-container":"#f4ebf2",
+      "surface-container-high":"#eee6ec","primary":"#441b4b","outline":"#7f747d",
+      "on-error-container":"#93000a","on-primary-container":"#d39dd6"
+    },
+    borderRadius: { DEFAULT:"0.25rem", lg:"0.5rem", xl:"0.75rem", full:"9999px" },
+    spacing: { base:"8px","margin-desktop":"48px","margin-mobile":"16px",gutter:"24px" },
+    fontFamily: { "headline-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"] },
+    fontSize: {
+      "headline-md":["24px",{lineHeight:"32px",fontWeight:"600"}],
+      "label-sm":["12px",{lineHeight:"16px",fontWeight:"500"}],
+      "body-md":["16px",{lineHeight:"24px",fontWeight:"400"}],
+      "headline-lg":["40px",{lineHeight:"48px",letterSpacing:"-0.02em",fontWeight:"700"}],
+      "body-lg":["18px",{lineHeight:"28px",fontWeight:"400"}],
+      "headline-lg-mobile":["32px",{lineHeight:"40px",letterSpacing:"-0.02em",fontWeight:"700"}],
+      "label-md":["14px",{lineHeight:"20px",letterSpacing:"0.01em",fontWeight:"600"}]
+    }
+  }}
+}
+</script>
+<style>
+.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+.glass-card{background:rgba(255,255,255,0.8);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.custom-shadow{box-shadow:0 20px 40px -10px rgba(68,27,75,0.08)}
+.focus-ring:focus-within{outline:2px solid #441b4b;outline-offset:2px}
+body{min-height:max(884px,100dvh);background-color:#fff7fc;color:#1e1a1f}
+</style>
+</head>
+<body class="font-body-md text-on-surface">
+
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-base bg-surface shadow-sm h-16">
+  <div class="flex items-center gap-3">
+    <img alt="YNA Pharma" class="h-8 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBL9q9LzamP5vW1HPifH5d9nbfQfKa8DI4wXgZ2kkUaw8DxW1bK8LgWfiQcPTmKxCh5p7QgfXz3AgZ0HCalRsyw3g_GmaVv_Kc9AXk2gF47_QEoRo8AHBPYSkSP1chexVIvccL-TP_s_v3NsvUO5YCJC2f9jZyJjdZTILrl6tk_F_4PSrel5Q-V5TdEDYDnXkrnhml9vTeY_van_zkTmoTxHc34Mg7vqQkscLEFpCND5HgjeIdGlmxNXxcSxzp0aCjYqfsHis1vL_Y33g">
+    <h1 class="font-headline-md text-headline-md font-bold text-primary tracking-tight">YNA&nbsp;</h1>
+  </div>
+  <div class="flex items-center gap-4">
+    <button onclick="window.location.href='tela1.html'" class="p-2 rounded-full hover:bg-surface-container-high transition-colors active:scale-95">
+      <span class="material-symbols-outlined text-on-surface-variant">close</span>
+    </button>
+  </div>
+</header>
+
+<main class="pt-24 pb-32 px-margin-mobile max-w-screen-md mx-auto">
+  <section class="mb-gutter">
+    <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-2">Olá, Ana Luiza!</h2>
+    <p class="font-body-lg text-body-lg text-on-surface-variant">Personalize sua jornada de cuidado.</p>
+  </section>
+
+  <div class="space-y-gutter">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-base">
+      <div class="bg-surface-container-lowest p-gutter rounded-lg border border-outline-variant custom-shadow flex flex-col gap-2 focus-ring">
+        <label class="font-label-md text-label-md text-on-surface-variant px-1">Nome completo</label>
+        <input class="w-full bg-transparent border-none focus:ring-0 text-body-lg placeholder:text-outline p-0 h-10" value="Ana Luiza S. Figueiredo" type="text">
+      </div>
+      <div class="bg-surface-container-lowest p-gutter rounded-lg border border-outline-variant custom-shadow flex flex-col gap-2 focus-ring">
+        <label class="font-label-md text-label-md text-on-surface-variant px-1">Idade</label>
+        <input class="w-full bg-transparent border-none focus:ring-0 text-body-lg placeholder:text-outline p-0 h-10" value="65" type="number">
+      </div>
+      <div class="bg-surface-container-lowest p-gutter rounded-lg border border-outline-variant custom-shadow flex flex-col gap-2">
+        <label class="font-label-md text-label-md text-on-surface-variant px-1">Sexo biológico</label>
+        <div class="flex gap-2 mt-1">
+          <button class="flex-1 py-3 px-4 rounded-lg border font-label-md hover:bg-secondary-container transition-all active:scale-95 bg-primary text-on-primary border-primary" onclick="selectSex(this)">Feminino</button>
+          <button class="flex-1 py-3 px-4 rounded-lg border border-outline-variant font-label-md hover:bg-secondary-container transition-all active:scale-95 bg-surface text-on-surface-variant" onclick="selectSex(this)">Masculino</button>
+        </div>
+      </div>
+      <div class="bg-surface-container-lowest p-gutter rounded-lg border border-outline-variant custom-shadow flex flex-col gap-2 focus-ring">
+        <label class="font-label-md text-label-md text-on-surface-variant px-1">Peso (kg)</label>
+        <input class="w-full bg-transparent border-none focus:ring-0 text-body-lg placeholder:text-outline p-0 h-10" value="70" type="number">
+      </div>
+      <div class="bg-surface-container-lowest p-gutter rounded-lg border border-outline-variant custom-shadow flex flex-col gap-2 focus-ring">
+        <label class="font-label-md text-label-md text-on-surface-variant px-1">Escolaridade (opcional)</label>
+        <select class="w-full bg-transparent border-none focus:ring-0 text-body-lg p-0 h-10 appearance-none">
+          <option value="medio" selected>Ensino Médio</option>
+          <option value="fundamental">Ensino Fundamental</option>
+          <option value="superior">Ensino Superior</option>
+          <option value="pos">Pós-graduação</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="bg-primary-container/10 p-gutter rounded-xl border border-primary-container/20 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
+          <span class="material-symbols-outlined text-on-primary">visibility</span>
+        </div>
+        <div>
+          <h4 class="font-headline-md text-headline-md text-primary leading-tight">Limitações visuais/cognitivas</h4>
+          <p class="font-label-sm text-label-sm text-on-surface-variant">Ativar interface simplificada e alto contraste</p>
+        </div>
+      </div>
+      <label class="relative inline-flex items-center cursor-pointer">
+        <input class="sr-only peer" id="accessibility-toggle" type="checkbox">
+        <div class="w-14 h-8 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-1 after:start-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-primary"></div>
+      </label>
+    </div>
+
+    <!-- COMORBIDADES: padrão antigo, "Outras" vira input de texto -->
+    <section>
+      <div class="flex items-center justify-between mb-4 px-1">
+        <h3 class="font-headline-md text-headline-md text-primary">Comorbidades</h3>
+        <span class="text-label-sm text-outline px-2 py-1 bg-surface-container rounded-full">Selecione todas que se aplicam</span>
+      </div>
+      <p class="text-body-md text-on-surface-variant px-1 mb-4">Essas informações nos ajudam a personalizar alertas de interação medicamentosa.</p>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-base" id="comorbidities-grid">
+        <button class="group flex flex-col items-center justify-center p-base border rounded-xl transition-all hover:border-primary active:scale-95 bg-primary-container border-primary" onclick="toggleCard(this)">
+          <span class="material-symbols-outlined mb-2 text-3xl text-on-primary-container">respiratory_rate</span>
+          <span class="font-label-md text-label-md text-on-primary-container">Asma</span>
+        </button>
+        <button class="group flex flex-col items-center justify-center p-base border rounded-xl transition-all hover:border-primary active:scale-95 bg-primary-container border-primary" onclick="toggleCard(this)">
+          <span class="material-symbols-outlined mb-2 text-3xl text-on-primary-container">cardiology</span>
+          <span class="font-label-md text-label-md text-on-primary-container">Hipertensão</span>
+        </button>
+        <button class="group flex flex-col items-center justify-center p-base border rounded-xl transition-all hover:border-primary active:scale-95 bg-primary-container border-primary" onclick="toggleCard(this)">
+          <span class="material-symbols-outlined mb-2 text-3xl text-on-primary-container">bloodtype</span>
+          <span class="font-label-md text-label-md text-on-primary-container">Diabetes</span>
+        </button>
+        <button class="group flex flex-col items-center justify-center p-base bg-surface-container-lowest border border-outline-variant rounded-xl transition-all hover:border-primary active:scale-95" onclick="toggleCard(this)">
+          <span class="material-symbols-outlined text-primary mb-2 text-3xl">psychiatry</span>
+          <span class="font-label-md text-label-md text-on-surface-variant">Depressão</span>
+        </button>
+        <button class="group flex flex-col items-center justify-center p-base border rounded-xl transition-all hover:border-primary active:scale-95 bg-primary-container border-primary" onclick="toggleCard(this)">
+          <span class="material-symbols-outlined mb-2 text-3xl text-on-primary-container">fitness_center</span>
+          <span class="font-label-md text-label-md text-on-primary-container">Obesidade</span>
+        </button>
+        <button class="group flex flex-col items-center justify-center p-base border rounded-xl transition-all hover:border-primary active:scale-95 bg-primary-container border-primary" onclick="toggleCard(this)">
+          <span class="material-symbols-outlined mb-2 text-3xl text-on-primary-container">bloodtype</span>
+          <span class="font-label-md text-label-md text-on-primary-container">Colesterol</span>
+        </button>
+
+        <div id="custom-comorbidity-wrapper" class="hidden">
+          <input id="custom-comorbidity-input" type="text" placeholder="Digite e pressione Enter" onkeydown="commitCustomComorbidity(event)" onblur="cancelCustomComorbidity()" class="w-full h-full min-h-[88px] p-base bg-surface-container-lowest border-2 border-primary rounded-xl text-label-md text-on-surface text-center focus:outline-none focus:ring-0 placeholder:text-outline">
+        </div>
+        <button id="outras-btn" class="group flex flex-col items-center justify-center p-base bg-surface-variant/30 border border-dashed border-outline-variant rounded-xl transition-all hover:bg-surface-variant active:scale-95" onclick="activateOutrasInput()">
+          <span class="material-symbols-outlined text-outline mb-2 text-3xl">add_circle</span>
+          <span class="font-label-md text-label-md text-outline">Outras</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- HISTÓRICO DE SAÚDE (ALERGIAS): padrão antigo, grade selecionável com busca -->
+    <section>
+      <h3 class="font-headline-md text-headline-md text-primary mb-4 px-1">Histórico de Saúde</h3>
+      <div class="relative focus-ring bg-surface-container-lowest rounded-xl border border-outline-variant custom-shadow p-2">
+        <div class="flex items-center gap-3 px-2">
+          <span class="material-symbols-outlined text-primary">search</span>
+          <input class="w-full bg-transparent border-none focus:ring-0 text-body-md py-4" placeholder="Procure por medicamentos, alimentos ou substâncias..." type="text" oninput="filterAllergies(this.value)">
+        </div>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-base mt-4" id="allergy-options"></div>
+      <div class="flex flex-wrap gap-2 mt-4" id="selected-allergies"></div>
+    </section>
+
+    <section>
+      <h3 class="font-headline-md text-headline-md text-primary mb-4 px-1">Localização</h3>
+      <div class="rounded-xl overflow-hidden border border-outline-variant custom-shadow aspect-video relative">
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA9nRaPv3aL6m3OwCAVs03OrwRyCygn8MJCBnL20Aqp6skAdEIt1ZdGEhUCkoLoDD3zsEdk1NNvG6zPix4c7M9Z2ay9lKYpp99QrfNa0nJADvOUmsNVhooGFvhf2CdKdYmFBWWm-iNNcnrz0oDFb_8dhUnmtG4W9cGz9eWuQpQPpJ8G3caynnEtBAT_FnS2LxCJQl0pLjxsIYUTYMScWNVgE9XcrGjevu94_4y9W642ThtlHUfEkvf5N06aR49U-llu5jmVFt1Y_DM');"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
+        <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between glass-card p-4 rounded-lg">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary">distance</span>
+            <div>
+              <p class="font-label-md text-primary">Aracaju, SE</p>
+              <p class="text-xs text-on-surface-variant">Sua localização para detectar unidades de saúde próximas.</p>
+            </div>
+          </div>
+          <!-- Mapa não é clicável neste protótipo -->
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="fixed bottom-0 left-0 w-full p-margin-mobile bg-gradient-to-t from-background via-background to-transparent z-50">
+    <div class="max-w-screen-md mx-auto">
+      <div class="flex items-center justify-center gap-2 mb-4 text-on-surface-variant opacity-80">
+        <span class="material-symbols-outlined text-sm">verified_user</span>
+        <span class="text-xs font-label-sm">Seus dados estão protegidos pela LGPD e criptografia de ponta a ponta.</span>
+      </div>
+      <button class="w-full bg-secondary text-on-primary h-14 md:h-16 rounded-xl font-headline-md text-headline-md flex items-center justify-center gap-3 shadow-lg active:scale-95 transition-all hover:bg-primary-container" id="main-action">
+        <span class="material-symbols-outlined">tune</span>
+        <span>Configurar experiência</span>
+      </button>
+    </div>
+  </div>
+</main>
+
+<script>
+function toggleCard(element) {
+  const isSelected = element.classList.contains('bg-primary-container');
+  const icon = element.querySelector('.material-symbols-outlined');
+  const label = element.querySelector('span:last-child');
+  if (isSelected) {
+    element.classList.remove('bg-primary-container', 'border-primary');
+    element.classList.add('bg-surface-container-lowest', 'border-outline-variant');
+    icon.classList.remove('text-on-primary-container'); icon.classList.add('text-primary');
+    label.classList.remove('text-on-primary-container'); label.classList.add('text-on-surface-variant');
+  } else {
+    element.classList.remove('bg-surface-container-lowest', 'border-outline-variant');
+    element.classList.add('bg-primary-container', 'border-primary');
+    icon.classList.remove('text-primary'); icon.classList.add('text-on-primary-container');
+    label.classList.remove('text-on-surface-variant'); label.classList.add('text-on-primary-container');
+  }
+}
+function selectSex(element) {
+  const buttons = element.parentElement.querySelectorAll('button');
+  buttons.forEach(btn => {
+    btn.classList.remove('bg-primary', 'text-on-primary', 'border-primary');
+    btn.classList.add('bg-surface', 'text-on-surface-variant', 'border-outline-variant');
+  });
+  element.classList.remove('bg-surface', 'text-on-surface-variant', 'border-outline-variant');
+  element.classList.add('bg-primary', 'text-on-primary', 'border-primary');
+}
+document.getElementById('accessibility-toggle').addEventListener('change', function() {
+  document.body.classList.toggle('contrast-125', this.checked);
+});
+
+/* ===== Comorbidade "Outras" (padrão antigo) ===== */
+function activateOutrasInput() {
+  document.getElementById('outras-btn').classList.add('hidden');
+  const wrapper = document.getElementById('custom-comorbidity-wrapper');
+  wrapper.classList.remove('hidden');
+  const input = document.getElementById('custom-comorbidity-input');
+  input.value = '';
+  input.focus();
+}
+function cancelCustomComorbidity() {
+  setTimeout(() => {
+    document.getElementById('custom-comorbidity-wrapper').classList.add('hidden');
+    document.getElementById('outras-btn').classList.remove('hidden');
+  }, 150);
+}
+function commitCustomComorbidity(event) {
+  if (event.key !== 'Enter') return;
+  event.preventDefault();
+  const input = event.target;
+  const value = input.value.trim();
+  if (value) addCustomComorbidityCard(value);
+  input.value = '';
+  document.getElementById('custom-comorbidity-wrapper').classList.add('hidden');
+  document.getElementById('outras-btn').classList.remove('hidden');
+}
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+function addCustomComorbidityCard(text) {
+  const grid = document.getElementById('comorbidities-grid');
+  const outrasBtn = document.getElementById('outras-btn');
+  const card = document.createElement('div');
+  card.className = 'relative group flex flex-col items-center justify-center p-base bg-primary-container border border-primary rounded-xl active:scale-95 transition-all';
+  card.innerHTML = `
+    <button type="button" class="absolute top-1 right-1 w-5 h-5 flex items-center justify-center rounded-full bg-black/10 hover:bg-black/20" onclick="event.stopPropagation(); this.closest('.group').remove()" aria-label="Remover comorbidade">
+      <span class="material-symbols-outlined text-on-primary-container" style="font-size:14px;">close</span>
+    </button>
+    <span class="material-symbols-outlined text-on-primary-container mb-2 text-3xl">sick</span>
+    <span class="font-label-md text-label-md text-on-primary-container text-center px-2">${escapeHtml(text)}</span>
+  `;
+  grid.insertBefore(card, outrasBtn);
+}
+
+/* ===== Alergias (padrão antigo: grade + busca + tags) ===== */
+const allergyOptions = ['Penicilina', 'AINES', 'Dipirona', 'Sulfonamidas', 'Aspirina (AAS)', 'Amoxicilina', 'Ibuprofeno', 'Lactose', 'Glúten', 'Látex', 'Corantes alimentares', 'Iodo (contraste)'];
+const selectedAllergies = new Set(['Penicilina', 'AINES']);
+
+function renderAllergyOptions() {
+  const container = document.getElementById('allergy-options');
+  container.innerHTML = allergyOptions.map(name => {
+    const isSelected = selectedAllergies.has(name);
+    const stateClasses = isSelected
+      ? 'bg-error-container border-error-container text-on-error-container'
+      : 'bg-surface-container-lowest border-outline-variant text-on-surface-variant hover:border-error';
+    return `<button type="button" data-allergy="${escapeHtml(name)}" onclick="toggleAllergy('${name.replace(/'/g, "\\'")}')" class="px-3 py-3 rounded-lg border text-label-md font-label-md transition-all active:scale-95 text-center ${stateClasses}">${escapeHtml(name)}</button>`;
+  }).join('');
+}
+function renderSelectedAllergies() {
+  const container = document.getElementById('selected-allergies');
+  if (selectedAllergies.size === 0) {
+    container.innerHTML = '<span class="text-label-sm text-outline px-1">Nenhuma alergia selecionada</span>';
+    return;
+  }
+  container.innerHTML = Array.from(selectedAllergies).map(name => `
+    <span class="bg-error-container text-on-error-container font-label-md py-2 px-4 rounded-full flex items-center gap-2">
+      ${escapeHtml(name)}
+      <span class="material-symbols-outlined text-sm cursor-pointer" onclick="toggleAllergy('${name.replace(/'/g, "\\'")}')">close</span>
+    </span>
+  `).join('');
+}
+function toggleAllergy(name) {
+  if (selectedAllergies.has(name)) selectedAllergies.delete(name);
+  else selectedAllergies.add(name);
+  renderAllergyOptions();
+  renderSelectedAllergies();
+}
+function filterAllergies(query) {
+  const q = query.trim().toLowerCase();
+  document.querySelectorAll('#allergy-options button').forEach(btn => {
+    const name = btn.dataset.allergy.toLowerCase();
+    btn.style.display = name.includes(q) ? '' : 'none';
+  });
+}
+renderAllergyOptions();
+renderSelectedAllergies();
+
+/* ===== Botão principal ===== */
+const mainAction = document.getElementById('main-action');
+mainAction.addEventListener('click', () => {
+  mainAction.innerHTML = '<span class="material-symbols-outlined animate-spin">progress_activity</span><span>Configurando...</span>';
+  setTimeout(() => {
+    mainAction.innerHTML = '<span class="material-symbols-outlined">check_circle</span><span>Configurado com sucesso!</span>';
+    mainAction.classList.replace('bg-secondary', 'bg-primary-container');
+    setTimeout(() => { window.location.href = 'tela4.html'; }, 900);
+  }, 1200);
+});
+</script>
+</body></html>

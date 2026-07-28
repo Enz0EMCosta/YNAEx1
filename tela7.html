@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8">
+
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>YNA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<style>
+.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+.glass-card{background:rgba(255,255,255,0.8);backdrop-filter:blur(8px);border:1px solid #E0D6E2}
+body{font-family:'Plus Jakarta Sans',sans-serif;background-color:#fff7fc;color:#1e1a1f;min-height:max(884px,100dvh)}
+.scroll-hide::-webkit-scrollbar{display:none}
+.scroll-hide{-ms-overflow-style:none;scrollbar-width:none}
+.duration-pill.active{background-color:#5d3263;color:#fff;border-color:#5d3263}
+</style>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: { extend: {
+    colors: {
+      "error-container":"#ffdad6","on-primary-container":"#d39dd6","primary-fixed":"#ffd5ff",
+      "on-primary":"#ffffff","surface-container-high":"#eee6ec","primary-container":"#5d3263",
+      "outline-variant":"#d0c3cd","error":"#ba1a1a","surface":"#fff7fc","on-error-container":"#93000a",
+      "surface-container-low":"#faf1f8","on-surface":"#1e1a1f","secondary-container":"#facffd",
+      "on-surface-variant":"#4d444c","surface-container":"#f4ebf2","secondary":"#74537a",
+      "tertiary-fixed-dim":"#cac5c7","surface-container-lowest":"#ffffff","background":"#fff7fc",
+      "outline":"#7f747d","surface-bright":"#fff7fc","primary":"#441b4b","on-error":"#ffffff"
+    },
+    borderRadius: { DEFAULT:"0.25rem", lg:"0.5rem", xl:"0.75rem", full:"9999px" },
+    spacing: { base:"8px","margin-desktop":"48px",gutter:"24px","container-max":"1280px","margin-mobile":"16px" },
+    fontFamily: { "label-sm":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"] },
+    fontSize: {
+      "label-sm":["12px",{lineHeight:"16px",fontWeight:"500"}],
+      "headline-md":["24px",{lineHeight:"32px",fontWeight:"600"}],
+      "body-md":["16px",{lineHeight:"24px",fontWeight:"400"}],
+      "label-md":["14px",{lineHeight:"20px",letterSpacing:"0.01em",fontWeight:"600"}],
+      "headline-lg-mobile":["32px",{lineHeight:"40px",letterSpacing:"-0.02em",fontWeight:"700"}]
+    }
+  }}
+}
+</script>
+</head>
+<body class="bg-background min-h-screen pb-24">
+<nav class="flex justify-between items-center px-margin-mobile h-16 w-full fixed top-0 z-50 bg-surface">
+  <div class="flex items-center gap-3">
+    <button onclick="window.location.href='tela6.html'" class="p-1 rounded-full hover:bg-surface-container-low transition-colors active:scale-95">
+      <span class="material-symbols-outlined text-primary">arrow_back</span>
+    </button>
+   <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container flex-shrink-0">
+  <img 
+    src="yna.png" 
+    alt="YNA Avatar" 
+    class="w-full h-full object-cover"
+  >
+</div>
+    <span class="font-headline-md text-headline-md font-bold text-primary">YNA</span>
+  </div>
+  <div class="cursor-pointer active:opacity-80 hover:bg-surface-container-low transition-colors p-2 rounded-full">
+    <span class="material-symbols-outlined text-on-surface-variant">settings</span>
+  </div>
+</nav>
+
+<main class="pt-20 px-margin-mobile max-w-container-max mx-auto">
+  <header class="mb-8 mt-4">
+    <h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary">Detalhes do Medicamento</h1>
+    <p class="font-body-md text-body-md text-on-surface-variant mt-2">Configure a administração e valide a segurança com IA.</p>
+  </header>
+
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+    <section class="md:col-span-7 flex flex-col gap-6">
+      <div class="glass-card rounded-xl p-6 flex items-center justify-between">
+        <div class="flex items-center gap-4">
+          <div class="w-16 h-16 bg-secondary-container rounded-lg flex items-center justify-center">
+            <span class="material-symbols-outlined text-on-secondary-container text-4xl">pill</span>
+          </div>
+          <div>
+            <h2 class="font-headline-md text-headline-md text-on-surface">Empaglifozina</h2>
+            <p class="font-label-md text-label-md text-outline">Comprimido • Uso Adulto</p>
+          </div>
+        </div>
+        <button class="text-primary hover:bg-surface-container-low p-2 rounded-full transition-colors">
+          <span class="material-symbols-outlined">edit</span>
+        </button>
+      </div>
+
+      <div class="glass-card rounded-xl p-6 space-y-6">
+        <!-- Dose (clicável / editável) -->
+        <div>
+          <label class="block font-label-md text-label-md text-on-surface mb-2">Dose Recomendada</label>
+          <div class="relative">
+            <input id="dose-input" class="w-full h-12 px-4 rounded-lg border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary-fixed outline-none transition-all font-body-md text-body-md cursor-pointer" value="10mg" type="text">
+            <span class="absolute right-4 top-1/2 -translate-y-1/2 text-outline material-symbols-outlined">straighten</span>
+          </div>
+        </div>
+
+        <!-- Via de administração (clicável) -->
+        <div>
+          <label class="block font-label-md text-label-md text-on-surface mb-2">Via de administração</label>
+          <div class="grid grid-cols-3 gap-3" id="via-group">
+            <button data-via="Oral" class="via-btn border-2 border-primary bg-primary-fixed text-primary px-4 py-3 rounded-lg flex flex-col items-center gap-1 transition-all">
+              <span class="material-symbols-outlined">south</span><span class="font-label-sm text-label-sm">Oral</span>
+            </button>
+            <button data-via="IV" class="via-btn border border-outline-variant hover:border-primary-fixed px-4 py-3 rounded-lg flex flex-col items-center gap-1 transition-all text-on-surface-variant">
+              <span class="material-symbols-outlined">vaccines</span><span class="font-label-sm text-label-sm">IV</span>
+            </button>
+            <button data-via="Outra" class="via-btn border border-outline-variant hover:border-primary-fixed px-4 py-3 rounded-lg flex flex-col items-center gap-1 transition-all text-on-surface-variant">
+              <span class="material-symbols-outlined">medical_services</span><span class="font-label-sm text-label-sm">Outra</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Horários (clicáveis + adicionar) -->
+        <div>
+          <label class="block font-label-md text-label-md text-on-surface mb-2">Horários de Tomada</label>
+          <div class="flex flex-wrap gap-4" id="horarios-group">
+            <div data-time="08:00" class="horario-pill flex items-center gap-3 bg-surface-container rounded-full px-4 py-2 border border-outline-variant cursor-pointer hover:border-primary transition-colors">
+              <span class="material-symbols-outlined text-amber-500" style="font-variation-settings: 'FILL' 1;">light_mode</span>
+              <span class="font-label-md text-label-md">08:00</span>
+            </div>
+            <div data-time="16:00" class="horario-pill flex items-center gap-3 bg-surface-container rounded-full px-4 py-2 border border-outline-variant cursor-pointer hover:border-primary transition-colors">
+              <span class="material-symbols-outlined text-orange-400" style="font-variation-settings: 'FILL' 1;">wb_sunny</span>
+              <span class="font-label-md text-label-md">16:00</span>
+            </div>
+            <div data-time="00:00" class="horario-pill selected flex items-center gap-3 bg-primary-container text-white rounded-full px-4 py-2 border border-primary cursor-pointer transition-colors">
+              <span class="material-symbols-outlined text-primary-fixed" style="font-variation-settings: 'FILL' 1;">dark_mode</span>
+              <span class="font-label-md text-label-md">00:00</span>
+            </div>
+            <button id="add-horario" class="w-10 h-10 rounded-full border-2 border-dashed border-outline flex items-center justify-center text-outline hover:text-primary hover:border-primary transition-all">
+              <span class="material-symbols-outlined">add</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Duração: scroll horizontal de dias -->
+        <div>
+          <label class="block font-label-md text-label-md text-on-surface mb-2">Duração do Tratamento</label>
+          <div class="flex items-center gap-4">
+            <div class="flex-1 overflow-x-auto scroll-hide">
+              <div class="flex gap-2 w-max" id="duration-scroll">
+                <!-- pills geradas via JS -->
+              </div>
+            </div>
+          </div>
+          <p class="text-center mt-3 font-headline-md text-headline-md text-primary" id="duration-label">9 dias</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="md:col-span-5 flex flex-col gap-6">
+      <div class="relative overflow-hidden glass-card rounded-xl border-2 border-error p-6">
+        <div class="flex justify-center mb-4">
+          <div class="w-24 h-24 rounded-full overflow-hidden border-2 border-error shadow-md bg-white">
+            <img alt="YNA Alerta Crítico" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLvPwmRQHhIgSKKUVFJjSz7xaYWn9OfHSfe0GobuViwEAJ5FfD0WZl5Z_7VDosSiHSGvIU0DBaWct5L_8EVoaltZYkZEb7DAkASELlHXhZ6RonX_UmasVRDOpuw7YLKmomLWcy2D5VLIzt9AdbQk9JbXtUlTjRI7QJxVVhoOHJ0sS9Xlt-waZN4gRHhcyDT7CZkXWprPmLjfQE-I_PP7hKRRYOBQdfCdX-SU_FBLhu5wySlOonQyY-0I97Y">
+          </div>
+        </div>
+        <div class="flex justify-between items-start mb-4">
+          <div class="bg-error-container text-on-error-container px-3 py-1 rounded-full flex items-center gap-1">
+            <span class="material-symbols-outlined text-[18px]">report</span><span class="text-label-sm font-label-sm">Alerta Crítico</span>
+          </div>
+          <span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">warning</span>
+        </div>
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Interação Medicamentosa</h3>
+        <p class="text-body-md font-body-md text-on-surface-variant">YNA detectou uma possível interação moderada entre <span class="font-bold text-primary">Empaglifozina 10mg</span> e <span class="font-bold text-primary">Losartana 50mg</span>. O uso concomitante pode aumentar o risco de hipotensão severa.</p>
+        <div class="mt-6 flex flex-col gap-2">
+          <button onclick="window.location.href='tela8.html'" class="bg-primary text-on-primary h-14 rounded-xl font-label-md hover:opacity-90 transition-opacity active:scale-95">Consultar Alerta</button>
+          <button onclick="window.location.href='tela8.html'" class="text-primary font-label-md py-2">Ver detalhes técnicos</button>
+        </div>
+      </div>
+
+      <div class="mt-auto pt-6">
+        <button id="save-btn" class="w-full bg-primary hover:bg-primary-container text-white h-14 rounded-xl font-headline-md text-headline-md flex items-center justify-center gap-3 shadow-lg active:scale-95 transition-all">
+          <span>Salvar no Cronograma</span>
+          <span class="material-symbols-outlined">event_available</span>
+        </button>
+        <p class="text-center mt-4 font-label-sm text-label-sm text-outline">Ao salvar, este lembrete será ativado automaticamente.</p>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="fixed bottom-0 w-full z-50 bg-surface shadow-[0_-1px_0_0_rgba(224,214,226,1)] md:hidden">
+  <div class="flex justify-around items-center px-base py-2">
+    <a href="#" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all"><span class="material-symbols-outlined">home</span><span class="font-label-sm text-label-sm">Início</span></a>
+    <a href="tela4.html" class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 active:scale-95 transition-transform"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">pill</span><span class="font-label-sm text-label-sm">Remédios</span></a>
+    <a href="#" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all"><span class="material-symbols-outlined">document_scanner</span><span class="font-label-sm text-label-sm">Escanear</span></a>
+    <a href="tela8.html" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all"><span class="material-symbols-outlined">warning</span><span class="font-label-sm text-label-sm">Alertas</span></a>
+    <a href="tela10.html" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all"><span class="material-symbols-outlined">history</span><span class="font-label-sm text-label-sm">Histórico</span></a>
+    <a href="tela9.html" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all"><span class="material-symbols-outlined">map</span><span class="font-label-sm text-label-sm">Mapa</span></a>
+  </div>
+</footer>
+
+<script>
+// Via de administração clicável
+document.querySelectorAll('.via-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.via-btn').forEach(b => {
+      b.classList.remove('border-2', 'border-primary', 'bg-primary-fixed', 'text-primary');
+      b.classList.add('border', 'border-outline-variant', 'text-on-surface-variant');
+    });
+    btn.classList.remove('border', 'border-outline-variant', 'text-on-surface-variant');
+    btn.classList.add('border-2', 'border-primary', 'bg-primary-fixed', 'text-primary');
+  });
+});
+
+// Horários clicáveis (toggle seleção)
+document.querySelectorAll('.horario-pill').forEach(pill => {
+  pill.addEventListener('click', () => {
+    const selected = pill.classList.contains('selected');
+    if (selected) {
+      pill.classList.remove('selected', 'bg-primary-container', 'text-white', 'border-primary');
+      pill.classList.add('bg-surface-container', 'border-outline-variant');
+    } else {
+      pill.classList.add('selected', 'bg-primary-container', 'text-white', 'border-primary');
+      pill.classList.remove('bg-surface-container', 'border-outline-variant');
+    }
+  });
+});
+
+// Adicionar novo horário
+document.getElementById('add-horario').addEventListener('click', () => {
+  const novo = prompt('Digite o novo horário (ex: 12:00):');
+  if (!novo) return;
+  const group = document.getElementById('horarios-group');
+  const addBtn = document.getElementById('add-horario');
+  const div = document.createElement('div');
+  div.className = 'horario-pill selected flex items-center gap-3 bg-primary-container text-white rounded-full px-4 py-2 border border-primary cursor-pointer transition-colors';
+  div.dataset.time = novo;
+  div.innerHTML = `<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">schedule</span><span class="font-label-md text-label-md">${novo}</span>`;
+  div.addEventListener('click', () => {
+    const selected = div.classList.contains('selected');
+    if (selected) {
+      div.classList.remove('selected', 'bg-primary-container', 'text-white', 'border-primary');
+      div.classList.add('bg-surface-container', 'border-outline-variant');
+    } else {
+      div.classList.add('selected', 'bg-primary-container', 'text-white', 'border-primary');
+      div.classList.remove('bg-surface-container', 'border-outline-variant');
+    }
+  });
+  group.insertBefore(div, addBtn);
+});
+
+// Duração — scroll horizontal de pills (1 a 30 dias)
+const durationScroll = document.getElementById('duration-scroll');
+const durationLabel = document.getElementById('duration-label');
+for (let d = 1; d <= 30; d++) {
+  const pill = document.createElement('button');
+  pill.className = 'duration-pill shrink-0 w-14 h-14 rounded-full border border-outline-variant flex items-center justify-center font-label-md text-label-md text-on-surface-variant transition-all active:scale-90' + (d === 9 ? ' active' : '');
+  pill.textContent = d;
+  pill.addEventListener('click', () => {
+    document.querySelectorAll('.duration-pill').forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    durationLabel.textContent = `${d} dia${d > 1 ? 's' : ''}`;
+    pill.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+  });
+  durationScroll.appendChild(pill);
+}
+
+// Salvar (feedback visual)
+document.getElementById('save-btn').addEventListener('click', function() {
+  this.innerHTML = '<span class="material-symbols-outlined">check_circle</span><span>Salvo no Cronograma!</span>';
+  this.classList.replace('bg-primary', 'bg-primary-container');
+});
+</script>
+</body></html>
