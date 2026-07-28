@@ -73,26 +73,13 @@ body{min-height:max(884px,100dvh);background-color:#fff7fc;color:#1e1a1f}
         <label class="font-label-md text-label-md text-on-surface-variant px-1">Idade</label>
         <input class="w-full bg-transparent border-none focus:ring-0 text-body-lg placeholder:text-outline p-0 h-10" value="65" type="number">
       </div>
-      <div class="bg-surface-container-lowest p-gutter rounded-lg border border-outline-variant custom-shadow flex flex-col gap-2">
-        <label class="font-label-md text-label-md text-on-surface-variant px-1">Sexo biológico</label>
-        <div class="flex gap-2 mt-1">
-          <button class="flex-1 py-3 px-4 rounded-lg border font-label-md hover:bg-secondary-container transition-all active:scale-95 bg-primary text-on-primary border-primary" onclick="selectSex(this)">Feminino</button>
-          <button class="flex-1 py-3 px-4 rounded-lg border border-outline-variant font-label-md hover:bg-secondary-container transition-all active:scale-95 bg-surface text-on-surface-variant" onclick="selectSex(this)">Masculino</button>
-        </div>
+      
       </div>
       <div class="bg-surface-container-lowest p-gutter rounded-lg border border-outline-variant custom-shadow flex flex-col gap-2 focus-ring">
         <label class="font-label-md text-label-md text-on-surface-variant px-1">Peso (kg)</label>
         <input class="w-full bg-transparent border-none focus:ring-0 text-body-lg placeholder:text-outline p-0 h-10" value="70" type="number">
       </div>
-      <div class="bg-surface-container-lowest p-gutter rounded-lg border border-outline-variant custom-shadow flex flex-col gap-2 focus-ring">
-        <label class="font-label-md text-label-md text-on-surface-variant px-1">Escolaridade (opcional)</label>
-        <select class="w-full bg-transparent border-none focus:ring-0 text-body-lg p-0 h-10 appearance-none">
-          <option value="medio" selected>Ensino Médio</option>
-          <option value="fundamental">Ensino Fundamental</option>
-          <option value="superior">Ensino Superior</option>
-          <option value="pos">Pós-graduação</option>
-        </select>
-      </div>
+      
     </div>
 
     <div class="bg-primary-container/10 p-gutter rounded-xl border border-primary-container/20 flex items-center justify-between gap-4">
@@ -276,7 +263,7 @@ function addCustomComorbidityCard(text) {
 }
 
 /* ===== Alergias (padrão antigo: grade + busca + tags) ===== */
-const allergyOptions = ['Penicilina', 'AINES', 'Dipirona', 'Sulfonamidas', 'Aspirina (AAS)', 'Amoxicilina', 'Ibuprofeno', 'Lactose', 'Glúten', 'Látex', 'Corantes alimentares', 'Iodo (contraste)'];
+const allergyOptions = ['Penicilina', 'AINES', 'Dipirona', 'Sulfonamidas', 'Lactose', 'Glúten', 'Látex', 'Corantes alimentares', 'Contraste'];
 const selectedAllergies = new Set(['Penicilina', 'AINES']);
 
 function renderAllergyOptions() {
