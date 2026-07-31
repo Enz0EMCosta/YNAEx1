@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="light" lang="pt-br"><head>
+<html class="light" lang="pt-BR"><head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>YNA</title>
@@ -152,17 +152,15 @@ body{min-height:max(884px,100dvh)}
   </button>
 </div>
 <nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-base py-2 bg-surface shadow-md rounded-t-xl">
-  <a href="#" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-95"><span class="material-symbols-outlined">home</span><span class="font-label-sm text-label-sm">Início</span></a>
+  <a href="tela3.html" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-95"><span class="material-symbols-outlined">home</span><span class="font-label-sm text-label-sm">Início</span></a>
   <a href="tela4.html" class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 transition-all active:scale-95"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">pill</span><span class="font-label-sm text-label-sm">Remédios</span></a>
-  <a href="#" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-95"><span class="material-symbols-outlined">qr_code_scanner</span><span class="font-label-sm text-label-sm">Escanear</span></a>
+  <a href="tela11.html" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-95"><span class="material-symbols-outlined">qr_code_scanner</span><span class="font-label-sm text-label-sm">Escanear</span></a>
   <a href="tela8.html" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-95"><span class="material-symbols-outlined">warning</span><span class="font-label-sm text-label-sm">Alertas</span></a>
   <a href="tela10.html" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-95"><span class="material-symbols-outlined">history</span><span class="font-label-sm text-label-sm">Histórico</span></a>
   <a href="tela9.html" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-95"><span class="material-symbols-outlined">map</span><span class="font-label-sm text-label-sm">Mapa</span></a>
 </nav>
 
 <script>
-// Seleção: qualquer card clicado marca visualmente, mas o fluxo do protótipo
-// sempre segue com a Empaglifozina 10mg (é ela que a YNA vai detalhar).
 document.querySelectorAll('.med-card').forEach(card => {
   card.addEventListener('click', () => {
     document.querySelectorAll('.med-card').forEach(c => {
