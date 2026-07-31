@@ -41,9 +41,6 @@ tailwind.config = {
 
 <header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-base bg-surface shadow-sm h-16">
   <div class="flex items-center gap-2">
-  <button onclick="window.location.href='tela6.html'" class="fixed bottom-24 right-6 w-14 h-14 bg-primary text-white rounded-2xl shadow-xl flex items-center justify-center hover:scale-105 active:scale-95 transition-all z-40">
-  <span class="material-symbols-outlined text-3xl">add</span>
-</button>
     <div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant">
       <img alt="YNA Purple Logo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzhyl8iL7-4icaWXZt3LtAm3M57sWeV6G0rI1Tq62DSYRSdjyY_QjuoO04EO7yBKb7-tMq_lPLwkqEGZcYo3AosKlQlPQ7QhfqouFXytQ2u98F8GmVWJKr5I7j6mFdhtIdltf9jA7jho20mX0BiW6-eoDutEC7aG4Jb5_y9iM2UNNwWex2SSMUGOGPJPEhzCpy8f9ogMxa3xdNsHLclFX1dkqC_s3luBM5QBk8hQZDb3T-C58CrXG0CyRBTYrhTYYV2LxV7M7SoRJ7Pg">
     </div>
@@ -179,16 +176,20 @@ tailwind.config = {
     </div>
   </section>
 
-  <div class="mt-8 relative rounded-3xl overflow-hidden h-48 group cursor-pointer">
-    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Scientific resources background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBq8AyCFLIoEv75MkI48B2Ngs0_UQcvB9AOH5BJyFL7jPhywB1MowFHhU8gQWI4X_Mv881Nmc0amkCAGyF6Ji7uh-5K1dx7OhSClXRBdjcwXYhfbyLSWYu7ScfsFnGW0sxxRrLI_tvrNH4wTW7bdzj6cUVRw473uPwbKkFPTDRmyjpE3AypMMGo1zlKrCWQD19qaFtssenh6AXgd5GefQ595zerH4hfRrANbx50CrU8XjJighyTrmykZTVLBmQuU-Dj7m8QHs2IYHQ">
+  <!-- Base de Dados Científica — link real para Anvisa, imagem local pharma.png -->
+  <a href="https://www.gov.br/anvisa/pt-br/assuntos/medicamentos" target="_blank" rel="noopener noreferrer" class="mt-8 relative rounded-3xl overflow-hidden h-48 group cursor-pointer block">
+    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Farmácia com iluminação em tons roxos" src="pharma.png">
     <div class="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent flex flex-col justify-end p-4">
       <h4 class="text-white text-headline-md font-bold">Base de Dados Científica</h4>
-      <p class="text-white/80 text-body-md">Acesse bulas e estudos clínicos atualizados.</p>
+      <p class="text-white/80 text-body-md">Acesse a Anvisa: bulas, registros e alertas sanitários oficiais.</p>
+      <span class="text-white/90 text-label-sm font-bold mt-1 flex items-center gap-1">
+        Visitar site oficial <span class="material-symbols-outlined text-sm">open_in_new</span>
+      </span>
     </div>
-  </div>
+  </a>
 </main>
 
-<!-- Footer / BottomNav — todo clicável (alterna estado ativo, navegação futura) -->
+<!-- Footer / BottomNav -->
 <nav id="bottom-nav" class="fixed bottom-0 left-0 w-full z-50 flex justify-between items-center px-2 pb-safe h-16 bg-surface-container-lowest border-t border-outline-variant shadow-lg rounded-t-xl">
   <button data-nav="home" class="nav-item flex flex-1 flex-col items-center justify-center text-on-surface-variant py-1 rounded-lg transition-all active:scale-90">
     <span class="material-symbols-outlined">home</span><span class="font-label-sm text-[10px]">Início</span>
@@ -210,12 +211,12 @@ tailwind.config = {
   </button>
 </nav>
 
-<button class="fixed bottom-24 right-6 w-14 h-14 bg-primary text-white rounded-2xl shadow-xl flex items-center justify-center hover:scale-105 active:scale-95 transition-all z-40">
+<button onclick="window.location.href='tela6.html'" class="fixed bottom-24 right-6 w-14 h-14 bg-primary text-white rounded-2xl shadow-xl flex items-center justify-center hover:scale-105 active:scale-95 transition-all z-40">
   <span class="material-symbols-outlined text-3xl">add</span>
 </button>
 
 <script>
-const navLinks = { alerts: 'tela8.html', history: 'tela10.html', map: 'tela9.html' };
+const navLinks = { home: 'tela3.html', scan: 'tela11.html', alerts: 'tela8.html', history: 'tela10.html', map: 'tela9.html' };
 document.querySelectorAll('.nav-item').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.nav-item').forEach(b => {
