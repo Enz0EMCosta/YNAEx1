@@ -13,7 +13,6 @@
 @keyframes float{0%{transform:translateY(0px)}50%{transform:translateY(-5px)}100%{transform:translateY(0px)}}
 .animate-float{animation:float 3s ease-in-out infinite}
 body{min-height:max(884px,100dvh)}
-.nav-active{background-color:#facffd;color:#77557c}
 </style>
 <script id="tailwind-config">
 tailwind.config = {
@@ -27,7 +26,7 @@ tailwind.config = {
       "surface-container-low":"#faf1f8","surface-container":"#f4ebf2",
       "on-surface":"#1e1a1f","outline-variant":"#d0c3cd","surface-container-lowest":"#ffffff"
     },
-    spacing: { "margin-mobile":"16px","margin-desktop":"48px","container-padding":"24px","stack-sm":"8px","stack-md":"16px","stack-lg":"32px",gutter:"24px" },
+    spacing: { base:"8px","margin-mobile":"16px","margin-desktop":"48px","container-padding":"24px","stack-sm":"8px","stack-md":"16px","stack-lg":"32px",gutter:"24px" },
     fontFamily: { "headline-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"] },
     fontSize: {
       "headline-md":["24px",{lineHeight:"32px",fontWeight:"600"}],
@@ -41,7 +40,7 @@ tailwind.config = {
 }
 </script>
 </head>
-<body class="bg-background text-on-surface font-body-md selection:bg-primary-container">
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-container min-h-screen pb-32">
 
 <header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-base bg-surface shadow-sm transition-all">
   <div class="flex items-center gap-3">
@@ -56,7 +55,7 @@ tailwind.config = {
   </div>
 </header>
 
-<main class="pt-24 pb-32 px-container-padding max-w-screen-xl mx-auto">
+<main class="pt-24 pb-12 px-container-padding max-w-screen-xl mx-auto">
   <section class="mb-stack-lg">
     <div class="flex flex-col md:flex-row gap-gutter items-start">
       <div class="flex-1">
@@ -69,11 +68,11 @@ tailwind.config = {
         </p>
         <button id="listen-btn" class="mt-stack-md flex items-center gap-2 px-6 py-4 bg-primary text-on-primary rounded-xl font-label-md hover:opacity-90 active:scale-95 transition-all shadow-md group">
           <span class="material-symbols-outlined text-white group-hover:scale-110 transition-transform">
-  record_voice_over
-</span>
-<span class="text-white">
-  Ouvir explicação (Leitura por Voz)
-</span>
+            record_voice_over
+          </span>
+          <span class="text-white">
+            Ouvir explicação (Leitura por Voz)
+          </span>
         </button>
       </div>
       <div class="w-full md:w-80 shrink-0">
@@ -96,9 +95,9 @@ tailwind.config = {
     <h3 class="text-headline-md font-headline-md text-primary mb-stack-md">Dicas Rápidas</h3>
     <div class="flex gap-4 overflow-x-auto pb-4">
       <div class="min-w-[280px] bg-primary-container text-on-primary-container p-6 rounded-2xl shadow-md">
-       <span class="material-symbols-outlined text-3xl mb-2 text-white/80">favorite</span>
-<p class="font-bold mb-1 text-white/90">Coração Amigo</p>
-<p class="text-body-md text-white/70">Esse remédio é como um descanso para o seu coração bater mais leve.</p>
+        <span class="material-symbols-outlined text-3xl mb-2 text-white/80">favorite</span>
+        <p class="font-bold mb-1 text-white/90">Coração Amigo</p>
+        <p class="text-body-md text-white/70">Esse remédio é como um descanso para o seu coração bater mais leve.</p>
       </div>
       <div class="min-w-[280px] bg-secondary-container text-on-secondary-container p-6 rounded-2xl shadow-md">
         <span class="material-symbols-outlined text-3xl mb-2">water_drop</span>
@@ -119,8 +118,8 @@ tailwind.config = {
         <img alt="YNA Assistente Farmacêutica" class="w-24 h-24 rounded-full object-cover border-2 border-primary-container shadow-md animate-float" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaP4G7FAg0MHgfWTTL9JPBkceiQ1ehUi5p8bjlbCmMmm2albauImXlAQ89LZDj20SLlv6I9KAj_i_Dsr3I5e6YZu0qwPWKdYOvPvTgh1mkticqv5uenI-v9su2Z9nM-sioPoHWnPHacAu5_2cf96kgG_mMo_o6EPSch9kVQ90mjAhuT1YwAKiEtq4UeoCEOKU_rHnS8oVP0QHiWVyF64FxE8vh6Ic-w1-53g9MgUWDx7gy6ChntxUgkiS-ixlouMmRvn0d0YUYVJ8">
       </div>
       <div class="w-14 h-14 bg-primary-container rounded-full flex items-center justify-center mb-stack-md">
-  <span class="material-symbols-outlined text-white/90 text-3xl">health_metrics</span>
-</div>
+        <span class="material-symbols-outlined text-white/90 text-3xl">health_metrics</span>
+      </div>
       <h3 class="text-headline-md font-headline-md text-primary mb-stack-sm">Para que serve</h3>
       <ul class="space-y-stack-sm flex-1">
         <li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary mt-0.5" style="font-variation-settings: 'FILL' 1;">check_circle</span><span class="text-body-md">Baixar a pressão alta</span></li>
@@ -213,41 +212,32 @@ tailwind.config = {
   </aside>
 </main>
 
-<!-- BottomNav — mesmo padrão clicável da tela 4 -->
-<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-between items-center px-2 pb-safe h-16 bg-surface-container-lowest border-t border-outline-variant shadow-lg rounded-t-xl md:hidden">
-  <button data-nav="home" class="nav-item flex flex-1 flex-col items-center justify-center text-on-surface-variant py-1 rounded-lg transition-all active:scale-90">
-    <span class="material-symbols-outlined">home</span><span class="font-label-sm text-label-sm">Início</span>
-  </button>
-  <button data-nav="meds" class="nav-item nav-active flex flex-1 flex-col items-center justify-center py-1 rounded-lg transition-all active:scale-90">
-    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">pill</span><span class="font-label-sm text-label-sm">Remédios</span>
-  </button>
-  <button data-nav="scan" class="nav-item flex flex-1 flex-col items-center justify-center text-on-surface-variant py-1 rounded-lg transition-all active:scale-90">
-    <span class="material-symbols-outlined">qr_code_scanner</span><span class="font-label-sm text-label-sm">Escanear</span>
-  </button>
-  <button data-nav="alerts" class="nav-item flex flex-1 flex-col items-center justify-center text-on-surface-variant py-1 rounded-lg transition-all active:scale-90">
-    <span class="material-symbols-outlined">warning</span><span class="font-label-sm text-label-sm">Alertas</span>
-  </button>
-  <button data-nav="history" class="nav-item flex flex-1 flex-col items-center justify-center text-on-surface-variant py-1 rounded-lg transition-all active:scale-90">
-    <span class="material-symbols-outlined">history</span><span class="font-label-sm text-label-sm">Histórico</span>
-  </button>
-  <button data-nav="map" class="nav-item flex flex-1 flex-col items-center justify-center text-on-surface-variant py-1 rounded-lg transition-all active:scale-90">
-    <span class="material-symbols-outlined">map</span><span class="font-label-sm text-label-sm">Mapa</span>
-  </button>
+<!-- Navegação Inferior (Footer Nav) com mesmo padrão e links completos -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-base py-2 bg-surface shadow-md rounded-t-xl">
+  <a href="tela3.html" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-95">
+    <span class="material-symbols-outlined">home</span>
+    <span class="font-label-sm text-label-sm">Início</span>
+  </a>
+  <a href="tela4.html" class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 transition-all active:scale-95">
+    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">pill</span>
+    <span class="font-label-sm text-label-sm">Remédios</span>
+  </a>
+  <a href="tela11.html" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-95">
+    <span class="material-symbols-outlined">qr_code_scanner</span>
+    <span class="font-label-sm text-label-sm">Escanear</span>
+  </a>
+  <a href="tela8.html" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-95">
+    <span class="material-symbols-outlined">warning</span>
+    <span class="font-label-sm text-label-sm">Alertas</span>
+  </a>
+  <a href="tela10.html" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-95">
+    <span class="material-symbols-outlined">history</span>
+    <span class="font-label-sm text-label-sm">Histórico</span>
+  </a>
+  <a href="tela9.html" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-95">
+    <span class="material-symbols-outlined">map</span>
+    <span class="font-label-sm text-label-sm">Mapa</span>
+  </a>
 </nav>
 
-<script>
-const navLinks = { alerts: 'tela8.html', history: 'tela10.html', map: 'tela9.html' };
-document.querySelectorAll('.nav-item').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.nav-item').forEach(b => {
-      b.classList.remove('nav-active');
-      b.classList.add('text-on-surface-variant');
-    });
-    btn.classList.add('nav-active');
-    btn.classList.remove('text-on-surface-variant');
-    const target = navLinks[btn.dataset.nav];
-    if (target) window.location.href = target;
-  });
-});
-</script>
 </body></html>
