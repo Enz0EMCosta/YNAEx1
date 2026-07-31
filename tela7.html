@@ -1,53 +1,60 @@
 <!DOCTYPE html>
-<html lang="pt-BR"><head>
+<html class="light" lang="pt-BR">
+<head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>Detalhes do Medicamento - YNA</title>
+<title>YNA</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 <style>
-.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
-.glass-card{background:rgba(255,255,255,0.8);backdrop-filter:blur(8px);border:1px solid #E0D6E2}
-body{font-family:'Plus Jakarta Sans',sans-serif;background-color:#fff7fc;color:#1e1a1f;min-height:max(884px,100dvh)}
-.scroll-hide::-webkit-scrollbar{display:none}
-.scroll-hide{-ms-overflow-style:none;scrollbar-width:none}
-.duration-pill.active{background-color:#5d3263;color:#fff;border-color:#5d3263}
-.indeterminado-card{transition:all 0.2s ease}
-.indeterminado-card.active{background-color:#441b4b;border-color:#441b4b;color:#fff}
-.indeterminado-card.active .material-symbols-outlined{color:#fff}
-.dias-card{transition:all 0.2s ease}
-.dias-card.active{border-color:#441b4b;background-color:#faf1f8}
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(8px); border: 1px solid #E0D6E2; }
+  body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fff7fc; color: #1e1a1f; min-height: max(884px, 100dvh); }
+  .scroll-hide::-webkit-scrollbar { display: none; }
+  .scroll-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  .duration-pill.active { background-color: #5d3263; color: #fff; border-color: #5d3263; }
+  .indeterminado-card { transition: all 0.2s ease; }
+  .indeterminado-card.active { background-color: #441b4b; border-color: #441b4b; color: #fff; }
+  .indeterminado-card.active .material-symbols-outlined { color: #fff; }
+  .dias-card { transition: all 0.2s ease; }
+  .dias-card.active { border-color: #441b4b; background-color: #faf1f8; }
+  .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
 </style>
 <script id="tailwind-config">
 tailwind.config = {
   darkMode: "class",
-  theme: { extend: {
-    colors: {
-      "error-container":"#ffdad6","on-primary-container":"#d39dd6","primary-fixed":"#ffd5ff",
-      "on-primary":"#ffffff","surface-container-high":"#eee6ec","primary-container":"#5d3263",
-      "outline-variant":"#d0c3cd","error":"#ba1a1a","surface":"#fff7fc","on-error-container":"#93000a",
-      "surface-container-low":"#faf1f8","on-surface":"#1e1a1f","secondary-container":"#facffd",
-      "on-surface-variant":"#4d444c","surface-container":"#f4ebf2","secondary":"#74537a",
-      "tertiary-fixed-dim":"#cac5c7","surface-container-lowest":"#ffffff","background":"#fff7fc",
-      "outline":"#7f747d","surface-bright":"#fff7fc","primary":"#441b4b","on-error":"#ffffff"
-    },
-    borderRadius: { DEFAULT:"0.25rem", lg:"0.5rem", xl:"0.75rem", full:"9999px" },
-    spacing: { base:"8px","margin-desktop":"48px",gutter:"24px","container-max":"1280px","margin-mobile":"16px" },
-    fontFamily: { "label-sm":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"] },
-    fontSize: {
-      "label-sm":["12px",{lineHeight:"16px",fontWeight:"500"}],
-      "headline-md":["24px",{lineHeight:"32px",fontWeight:"600"}],
-      "body-md":["16px",{lineHeight:"24px",fontWeight:"400"}],
-      "label-md":["14px",{lineHeight:"20px",letterSpacing:"0.01em",fontWeight:"600"}],
-      "headline-lg-mobile":["32px",{lineHeight:"40px",letterSpacing:"-0.02em",fontWeight:"700"}]
+  theme: {
+    extend: {
+      colors: {
+        "error-container":"#ffdad6","on-primary-container":"#d39dd6","primary-fixed":"#ffd5ff",
+        "on-primary":"#ffffff","surface-container-high":"#eee6ec","primary-container":"#5d3263",
+        "outline-variant":"#d0c3cd","error":"#ba1a1a","surface":"#fff7fc","on-error-container":"#93000a",
+        "surface-container-low":"#faf1f8","on-surface":"#1e1a1f","secondary-container":"#facffd",
+        "on-surface-variant":"#4d444c","surface-container":"#f4ebf2","secondary":"#74537a",
+        "tertiary-fixed-dim":"#cac5c7","surface-container-lowest":"#ffffff","background":"#fff7fc",
+        "outline":"#7f747d","surface-bright":"#fff7fc","primary":"#441b4b","on-error":"#ffffff",
+        "on-secondary-container":"#77557c"
+      },
+      borderRadius: { DEFAULT:"0.25rem", lg:"0.5rem", xl:"0.75rem", full:"9999px" },
+      spacing: { base:"8px","margin-desktop":"48px",gutter:"24px","container-max":"1280px","margin-mobile":"16px" },
+      fontFamily: { "label-sm":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"] },
+      fontSize: {
+        "label-sm":["12px",{lineHeight:"16px",fontWeight:"500"}],
+        "headline-md":["24px",{lineHeight:"32px",fontWeight:"600"}],
+        "body-md":["16px",{lineHeight:"24px",fontWeight:"400"}],
+        "label-md":["14px",{lineHeight:"20px",letterSpacing:"0.01em",fontWeight:"600"}],
+        "headline-lg-mobile":["32px",{lineHeight:"40px",letterSpacing:"-0.02em",fontWeight:"700"}]
+      }
     }
-  }}
+  }
 }
 </script>
 </head>
-<body class="bg-background min-h-screen pb-24">
-<nav class="flex justify-between items-center px-margin-mobile h-16 w-full fixed top-0 z-50 bg-surface">
+<body class="bg-background min-h-screen pb-32">
+
+<!-- Header Superior -->
+<header class="flex justify-between items-center px-margin-mobile h-16 w-full fixed top-0 z-50 bg-surface">
   <div class="flex items-center gap-3">
     <button onclick="window.location.href='tela6.html'" class="p-1 rounded-full hover:bg-surface-container-low transition-colors active:scale-95">
       <span class="material-symbols-outlined text-primary">arrow_back</span>
@@ -60,7 +67,7 @@ tailwind.config = {
   <div class="cursor-pointer active:opacity-80 hover:bg-surface-container-low transition-colors p-2 rounded-full">
     <span class="material-symbols-outlined text-on-surface-variant">settings</span>
   </div>
-</nav>
+</header>
 
 <main class="pt-20 px-margin-mobile max-w-2xl mx-auto">
   <header class="mb-8 mt-4 text-center">
@@ -134,11 +141,10 @@ tailwind.config = {
         </div>
       </div>
 
-      <!-- Duração do Tratamento: duas opções claras e grandes -->
+      <!-- Duração do Tratamento -->
       <div>
         <label class="block font-label-md text-label-md text-on-surface mb-3 text-center">Duração do Tratamento</label>
 
-        <!-- Opção 1: Tempo Indeterminado — destaque total, sozinho -->
         <button id="indeterminado-btn" class="indeterminado-card w-full flex items-center gap-4 p-5 rounded-xl border-2 border-primary bg-primary-fixed text-primary transition-all active:scale-[0.98] mb-4">
           <span class="material-symbols-outlined text-4xl shrink-0">all_inclusive</span>
           <div class="text-left flex-1">
@@ -148,14 +154,12 @@ tailwind.config = {
           <span class="material-symbols-outlined check-icon text-3xl">check_circle</span>
         </button>
 
-        <!-- Divisor -->
         <div class="flex items-center gap-3 mb-4">
           <div class="flex-1 h-px bg-outline-variant"></div>
           <span class="text-label-md font-label-md text-outline">ou escolha os dias</span>
           <div class="flex-1 h-px bg-outline-variant"></div>
         </div>
 
-        <!-- Opção 2: Definir número de dias -->
         <button id="dias-btn" class="dias-card w-full flex items-center gap-4 p-5 rounded-xl border-2 border-outline-variant bg-surface-container-lowest text-on-surface transition-all active:scale-[0.98]">
           <span class="material-symbols-outlined text-4xl shrink-0 text-primary">calendar_month</span>
           <div class="text-left flex-1">
@@ -165,7 +169,6 @@ tailwind.config = {
           <span class="material-symbols-outlined text-3xl text-outline">chevron_right</span>
         </button>
 
-        <!-- Seletor de dias (aparece só quando "Definir dias" está ativo) -->
         <div id="dias-seletor" class="hidden mt-4 p-4 bg-surface-container-low rounded-xl">
           <div class="overflow-x-auto scroll-hide">
             <div class="flex gap-2 w-max px-1" id="duration-scroll"></div>
@@ -186,19 +189,65 @@ tailwind.config = {
   </div>
 </main>
 
-<footer class="fixed bottom-0 w-full z-50 bg-surface shadow-[0_-1px_0_0_rgba(224,214,226,1)] md:hidden">
-  <div class="flex justify-around items-center px-base py-2">
-    <a href="#" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all"><span class="material-symbols-outlined">home</span><span class="font-label-sm text-label-sm">Início</span></a>
-    <a href="tela4.html" class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 active:scale-95 transition-transform"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">pill</span><span class="font-label-sm text-label-sm">Remédios</span></a>
-    <a href="#" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all"><span class="material-symbols-outlined">document_scanner</span><span class="font-label-sm text-label-sm">Escanear</span></a>
-    <a href="tela8.html" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all"><span class="material-symbols-outlined">warning</span><span class="font-label-sm text-label-sm">Alertas</span></a>
-    <a href="tela10.html" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all"><span class="material-symbols-outlined">history</span><span class="font-label-sm text-label-sm">Histórico</span></a>
-    <a href="tela9.html" class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all"><span class="material-symbols-outlined">map</span><span class="font-label-sm text-label-sm">Mapa</span></a>
-  </div>
-</footer>
+<!-- FOOTER PADRONIZADO E CLICÁVEL -->
+<nav id="bottom-nav" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-base pb-safe h-16 bg-surface-container-lowest border-t border-outline-variant/60 shadow-lg">
+  <button data-nav="home" class="nav-item flex flex-col items-center justify-center text-on-surface-variant px-2 py-1 hover:text-primary transition-all active:scale-90">
+    <span class="material-symbols-outlined">home</span>
+    <span class="font-label-sm text-label-sm mt-0.5">Início</span>
+  </button>
+  <!-- Item Ativo nesta Tela (Remédios) -->
+  <button data-nav="meds" class="nav-item flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-3.5 py-1.5 active:scale-90 shadow-sm">
+    <span class="material-symbols-outlined fill-icon text-primary" style="font-variation-settings: 'FILL' 1;">pill</span>
+    <span class="font-label-sm text-label-sm font-semibold text-primary mt-0.5">Remédios</span>
+  </button>
+  <button data-nav="scan" class="nav-item flex flex-col items-center justify-center text-on-surface-variant px-2 py-1 hover:text-primary transition-all active:scale-90">
+    <span class="material-symbols-outlined">document_scanner</span>
+    <span class="font-label-sm text-label-sm mt-0.5">Escanear</span>
+  </button>
+  <button data-nav="alerts" class="nav-item flex flex-col items-center justify-center text-on-surface-variant px-2 py-1 hover:text-primary transition-all active:scale-90">
+    <span class="material-symbols-outlined">notifications</span>
+    <span class="font-label-sm text-label-sm mt-0.5">Alertas</span>
+  </button>
+  <button data-nav="history" class="nav-item flex flex-col items-center justify-center text-on-surface-variant px-2 py-1 hover:text-primary transition-all active:scale-90">
+    <span class="material-symbols-outlined">history</span>
+    <span class="font-label-sm text-label-sm mt-0.5">Histórico</span>
+  </button>
+  <button data-nav="map" class="nav-item flex flex-col items-center justify-center text-on-surface-variant px-2 py-1 hover:text-primary transition-all active:scale-90">
+    <span class="material-symbols-outlined">distance</span>
+    <span class="font-label-sm text-label-sm mt-0.5">Mapa</span>
+  </button>
+</nav>
 
 <script>
-// Via de administração clicável
+// Feedback háptico global em botões
+document.querySelectorAll('button').forEach(button => {
+  button.addEventListener('click', () => {
+    if (window.navigator.vibrate) {
+      window.navigator.vibrate(10);
+    }
+  });
+});
+
+/* ===== SCRIPT DE NAVEGAÇÃO DO FOOTER ===== */
+const navLinks = { 
+  home: 'tela3.html', 
+  meds: 'tela4.html', 
+  scan: 'tela11.html', 
+  alerts: 'tela8.html', 
+  history: 'tela10.html', 
+  map: 'tela9.html' 
+};
+
+document.querySelectorAll('.nav-item').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = navLinks[btn.dataset.nav];
+    if (target && window.location.pathname.indexOf(target) === -1) {
+      window.location.href = target;
+    }
+  });
+});
+
+/* ===== LÓGICA DA TELA ===== */
 document.querySelectorAll('.via-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.via-btn').forEach(b => {
@@ -210,7 +259,6 @@ document.querySelectorAll('.via-btn').forEach(btn => {
   });
 });
 
-// Horários clicáveis (toggle seleção)
 document.querySelectorAll('.horario-pill').forEach(pill => {
   pill.addEventListener('click', () => {
     const selected = pill.classList.contains('selected');
@@ -224,7 +272,6 @@ document.querySelectorAll('.horario-pill').forEach(pill => {
   });
 });
 
-// Adicionar novo horário
 document.getElementById('add-horario').addEventListener('click', () => {
   const novo = prompt('Digite o novo horário (ex: 12:00):');
   if (!novo) return;
@@ -247,7 +294,6 @@ document.getElementById('add-horario').addEventListener('click', () => {
   group.insertBefore(div, addBtn);
 });
 
-/* ===== Duração do Tratamento: Indeterminado vs Definir dias ===== */
 const indeterminadoBtn = document.getElementById('indeterminado-btn');
 const diasBtn = document.getElementById('dias-btn');
 const diasBtnLabel = document.getElementById('dias-btn-label');
@@ -255,9 +301,8 @@ const diasSeletor = document.getElementById('dias-seletor');
 const durationScroll = document.getElementById('duration-scroll');
 const durationLabel = document.getElementById('duration-label');
 
-let diasEscolhidos = 9;
+let diasEscolhidos = 15;
 
-// Gera as pills de 1 a 30 dias
 for (let d = 1; d <= 30; d++) {
   const pill = document.createElement('button');
   pill.className = 'duration-pill shrink-0 w-14 h-14 rounded-full border border-outline-variant flex items-center justify-center font-label-md text-label-md text-on-surface-variant transition-all active:scale-90' + (d === diasEscolhidos ? ' active' : '');
@@ -285,13 +330,11 @@ function ativarDias() {
   diasSeletor.classList.remove('hidden');
 }
 
-// Estado inicial: Tempo Indeterminado selecionado
 ativarIndeterminado();
 
 indeterminadoBtn.addEventListener('click', ativarIndeterminado);
 diasBtn.addEventListener('click', ativarDias);
 
-// Salvar (feedback visual + redirecionamento para tela8)
 document.getElementById('save-btn').addEventListener('click', function() {
   this.innerHTML = '<span class="material-symbols-outlined">check_circle</span><span>Salvo no Cronograma!</span>';
   this.classList.replace('bg-primary', 'bg-primary-container');
@@ -300,4 +343,5 @@ document.getElementById('save-btn').addEventListener('click', function() {
   }, 900);
 });
 </script>
-</body></html>
+</body>
+</html>
