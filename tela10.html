@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR"><head>
+<html lang="pt-BR">
+<head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>YNA - Histórico de Saúde | </title>
+<title>YNA</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -154,14 +155,32 @@ tailwind.config = {
   </div>
 </main>
 
-<!-- Footer padronizado com Mapa -->
-<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-base pb-safe h-16 bg-surface-container-lowest border-t border-outline-variant shadow-lg rounded-t-xl">
-  <a href="#" class="flex flex-col items-center justify-center text-on-surface-variant px-2 py-1 hover:bg-surface-container-high transition-all active:scale-90"><span class="material-symbols-outlined">home</span><span class="font-label-sm text-label-sm">Início</span></a>
-  <a href="tela4.html" class="flex flex-col items-center justify-center text-on-surface-variant px-2 py-1 hover:bg-surface-container-high transition-all active:scale-90"><span class="material-symbols-outlined">pill</span><span class="font-label-sm text-label-sm">Remédios</span></a>
-  <a href="#" class="flex flex-col items-center justify-center text-on-surface-variant px-2 py-1 hover:bg-surface-container-high transition-all active:scale-90"><span class="material-symbols-outlined">document_scanner</span><span class="font-label-sm text-label-sm">Escanear</span></a>
-  <a href="tela8.html" class="flex flex-col items-center justify-center text-on-surface-variant px-2 py-1 hover:bg-surface-container-high transition-all active:scale-90"><span class="material-symbols-outlined">notifications</span><span class="font-label-sm text-label-sm">Alertas</span></a>
-  <a href="#" class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-3 py-1 active:scale-90 transition-transform"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">history</span><span class="font-label-sm text-label-sm">Histórico</span></a>
-  <a href="tela9.html" class="flex flex-col items-center justify-center text-on-surface-variant px-2 py-1 hover:bg-surface-container-high transition-all active:scale-90"><span class="material-symbols-outlined">map</span><span class="font-label-sm text-label-sm">Mapa</span></a>
+<!-- Footer padronizado -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-base pb-safe h-16 bg-surface-container-lowest border-t border-outline-variant/60 shadow-lg">
+  <a href="tela3.html" class="flex flex-col items-center justify-center text-on-surface-variant px-2 py-1 hover:text-primary transition-all active:scale-90">
+    <span class="material-symbols-outlined">home</span>
+    <span class="font-label-sm text-label-sm mt-0.5">Início</span>
+  </a>
+  <a href="tela4.html" class="flex flex-col items-center justify-center text-on-surface-variant px-2 py-1 hover:text-primary transition-all active:scale-90">
+    <span class="material-symbols-outlined">pill</span>
+    <span class="font-label-sm text-label-sm mt-0.5">Remédios</span>
+  </a>
+  <a href="tela11.html" class="flex flex-col items-center justify-center text-on-surface-variant px-2 py-1 hover:text-primary transition-all active:scale-90">
+    <span class="material-symbols-outlined">document_scanner</span>
+    <span class="font-label-sm text-label-sm mt-0.5">Escanear</span>
+  </a>
+  <a href="tela8.html" class="flex flex-col items-center justify-center text-on-surface-variant px-2 py-1 hover:text-primary transition-all active:scale-90">
+    <span class="material-symbols-outlined">notifications</span>
+    <span class="font-label-sm text-label-sm mt-0.5">Alertas</span>
+  </a>
+  <a href="tela10.html" class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-3.5 py-1.5 active:scale-90 shadow-sm">
+    <span class="material-symbols-outlined fill-icon text-primary" style="font-variation-settings: 'FILL' 1;">history</span>
+    <span class="font-label-sm text-label-sm font-semibold text-primary mt-0.5">Histórico</span>
+  </a>
+  <a href="tela9.html" class="flex flex-col items-center justify-center text-on-surface-variant px-2 py-1 hover:text-primary transition-all active:scale-90">
+    <span class="material-symbols-outlined">distance</span>
+    <span class="font-label-sm text-label-sm mt-0.5">Mapa</span>
+  </a>
 </nav>
 
 <script>
@@ -209,4 +228,5 @@ periodChips.forEach(chip => {
 
 applyFilters();
 </script>
-</body></html>
+</body>
+</html>
